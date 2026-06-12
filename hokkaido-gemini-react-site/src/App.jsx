@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Bed, Bus, ChevronDown, GraduationCap, Hotel, Info, Luggage, Map, MapPinned, Plane, Route, Ship, Utensils, VenetianMask, Zap } from "lucide-react";
 import { itineraryData } from "./itineraryData";
 
@@ -252,6 +252,8 @@ function DayDetail({ day, index, lang }) {
 export default function App() {
   const [lang, setLang] = useState(() => localStorage.getItem("trip-lang") || "zh");
   const [active, setActive] = useState("overview");
+  const layoutRef = useRef(null);
+  const dayTimelineRefs = useRef([]);
   const activeDay = useMemo(() => itineraryData.days[Number(active)], [active]);
 
   function changeLang(nextLang) {
@@ -265,6 +267,15 @@ export default function App() {
     event.currentTarget.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
   }
 
+  function scrollToTimelineDay(dayIndex) {
+    requestAnimationFrame(() => {
+      layoutRef.current?.scrollIntoView({ block: "start", behavior: "smooth" });
+      requestAnimationFrame(() => {
+        dayTimelineRefs.current[dayIndex]?.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
+      });
+    });
+  }
+
   function selectFirstDayForCity(city) {
     let cityIndex = itineraryData.days.findIndex((day) => day.city === city.label || day.cityDe === city.labelDe);
     if (cityIndex < 0) {
@@ -275,6 +286,7 @@ export default function App() {
     }
     if (cityIndex >= 0) {
       setActive(String(cityIndex));
+      scrollToTimelineDay(cityIndex);
     }
   }
 
@@ -301,14 +313,22 @@ export default function App() {
         </div>
       </header>
 
-      <div className="layout">
+      <div className="layout" ref={layoutRef}>
         <aside className="timeline" aria-label="Itinerary timeline">
           <button className={active === "overview" ? "timeline-item active" : "timeline-item"} type="button" onClick={(event) => selectTimelineItem("overview", event)}>
             <span className="timeline-dot timeline-map-dot"><Map size={25} strokeWidth={2.5} /></span>
             <span><strong>{lang === "de" ? "Übersicht" : "總覽"}</strong><small>{lang === "de" ? "Reiseinfos" : "行程資訊"}</small></span>
           </button>
           {itineraryData.days.map((day, index) => (
-            <button className={active === String(index) ? "timeline-item active" : "timeline-item"} type="button" key={`${day.date}-${day.title}`} onClick={(event) => selectTimelineItem(String(index), event)}>
+            <button
+              className={active === String(index) ? "timeline-item active" : "timeline-item"}
+              type="button"
+              key={`${day.date}-${day.title}`}
+              ref={(element) => {
+                dayTimelineRefs.current[index] = element;
+              }}
+              onClick={(event) => selectTimelineItem(String(index), event)}
+            >
               <span className="timeline-dot">{index + 1}</span>
               <span><strong>{day.date}</strong><small>{lang === "de" ? day.cityDe : day.city}</small></span>
             </button>
