@@ -27,11 +27,6 @@ export const itineraryData = {
       "name": "noboribetsu",
       "label": "登別",
       "labelDe": "Noboribetsu"
-    },
-    {
-      "name": "new-chitose",
-      "label": "新千歲",
-      "labelDe": "New Chitose"
     }
   ],
   "intro": [
