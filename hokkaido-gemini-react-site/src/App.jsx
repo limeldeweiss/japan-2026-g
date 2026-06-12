@@ -265,6 +265,19 @@ export default function App() {
     event.currentTarget.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
   }
 
+  function selectFirstDayForCity(city) {
+    let cityIndex = itineraryData.days.findIndex((day) => day.city === city.label || day.cityDe === city.labelDe);
+    if (cityIndex < 0) {
+      cityIndex = itineraryData.days.findIndex((day) => {
+        const dayText = [day.title, day.titleDe, day.city, day.cityDe, ...day.blocks.flatMap((block) => [block.html, block.htmlDe])].join(" ");
+        return dayText.includes(city.label) || dayText.includes(city.labelDe);
+      });
+    }
+    if (cityIndex >= 0) {
+      setActive(String(cityIndex));
+    }
+  }
+
   return (
     <div className="app-shell">
       <header className="hero">
@@ -279,10 +292,10 @@ export default function App() {
           <h1>{lang === "de" ? "Hokkaido Japan: 8 Tage" : "日本北海道8日遊"}</h1>
           <div className="city-tags">
             {itineraryData.cities.map((city) => (
-              <span key={city.name}>
+              <button key={city.name} type="button" onClick={() => selectFirstDayForCity(city)}>
                 <strong>{city.label}</strong>
                 <small>{city.labelDe}</small>
-              </span>
+              </button>
             ))}
           </div>
         </div>
