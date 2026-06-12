@@ -1,5 +1,5 @@
 {
-  "installCommand": "cd travel-react-site && npm install",
-  "buildCommand": "cd travel-react-site && npm run build",
-  "outputDirectory": "travel-react-site/dist"
+  "installCommand": "cd hokkaido-gemini-react-site && npm install",
+  "buildCommand": "cd hokkaido-gemini-react-site && npm run build",
+  "outputDirectory": "hokkaido-gemini-react-site/dist"
 }
