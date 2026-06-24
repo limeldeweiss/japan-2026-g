@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>日本北海道8日遊</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2744;
+  --navy-light:#243259;
+  --navy-mid:#1e3060;
+  --navy-accent:#2d4a8a;
+  --gold:#c8a84b;
+  --gold-light:#e8d5a0;
+  --red:#c0392b;
+  --cream:#f5f7fa;
+  --white:#ffffff;
+  --text:#1e2733;
+  --text-light:#5a6478;
+  --border:#d8dfe8;
+  --shadow:0 2px 16px rgba(26,39,68,0.10);
+}
+html,body{width:100%;overflow-x:hidden;background:var(--cream);color:var(--text);font-family:'Noto Sans TC',sans-serif}
+
+/* ── BANNER ── */
+.banner{background:linear-gradient(150deg,#0d1b38 0%,var(--navy) 45%,var(--navy-accent) 100%);color:#fff;position:relative;overflow:hidden;padding:0}
+.banner-bg{position:absolute;inset:0;pointer-events:none}
+.banner-content{position:relative;z-index:2;padding:38px 24px 30px}
+.lang-switch{position:absolute;right:18px;top:16px;z-index:4;display:flex;align-items:center;gap:2px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.22);border-radius:18px;padding:3px;backdrop-filter:blur(10px)}
+.lang-btn{border:none;background:transparent;color:rgba(255,255,255,0.68);border-radius:14px;padding:5px 10px;font-size:12px;font-weight:700;font-family:'Noto Sans TC',sans-serif;cursor:pointer;line-height:1;transition:background 0.2s,color 0.2s}
+.lang-btn.active{background:var(--red);color:#fff}
+.lang-btn:hover{color:#fff}
+.banner-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:10px;font-weight:500}
+.banner-title{font-family:'Noto Serif TC',serif;font-size:clamp(30px,6vw,54px);font-weight:900;line-height:1.12;letter-spacing:0;color:#fff}
+.banner-title span{color:var(--gold-light)}
+.banner-sub{margin-top:14px;font-size:14px;color:rgba(255,255,255,0.78);line-height:1.85}
+.banner-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pill{background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:6px 16px;font-size:12px;color:rgba(255,255,255,0.9);letter-spacing:0.3px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;display:inline-flex;flex-direction:column;align-items:center;gap:1px;transition:background 0.2s}
+.pill:hover{background:rgba(255,255,255,0.22)}
+.pill.red{background:var(--red);border-color:var(--red)}
+.pill.red:hover{background:#a93224}
+.pill-ja{font-size:13px;font-weight:600;line-height:1.2}
+.pill-en{font-size:8px;font-weight:400;opacity:0.65;letter-spacing:0.5px;line-height:1}
+.banner-mountain{position:absolute;bottom:0;left:0;right:0;pointer-events:none}
+
+/* ── NAV TABS ── */
+.tabs-wrapper{background:var(--navy);position:sticky;top:0;z-index:100;box-shadow:0 3px 10px rgba(0,0,0,0.35)}
+.tabs{
+  display:flex;
+  flex-wrap:nowrap;
+  overflow:hidden;
+  padding:4px 4px 0;
+  gap:1px;
+}
+.tab{
+  flex:1 1 0;
+  min-width:0;
+  padding:7px 2px 9px;
+  font-size:11px;
+  color:rgba(255,255,255,0.5);
+  font-weight:500;
+  cursor:pointer;
+  border-bottom:3px solid transparent;
+  border-top:none;border-left:none;border-right:none;
+  transition:all 0.2s;
+  font-family:'Noto Sans TC',sans-serif;
+  background:none;
+  text-align:center;
+  line-height:1.25;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1px;
+  overflow:hidden;
+}
+.tab:hover{color:rgba(255,255,255,0.85)}
+.tab.active{color:#fff;border-bottom-color:var(--gold);background:rgba(255,255,255,0.06);border-radius:6px 6px 0 0}
+.tab-day{font-size:10px;font-weight:700;letter-spacing:0.5px;opacity:0.7;text-transform:uppercase}
+.tab.active .tab-day{opacity:1;color:var(--gold-light)}
+.tab-city{font-size:13px;font-weight:600;white-space:nowrap}
+
+/* ── MAIN ── */
+.main{max-width:860px;margin:0 auto;padding:24px 16px 60px}
+
+/* ── OVERVIEW HERO ── */
+.overview-hero{background:linear-gradient(150deg,#0d1b38 0%,var(--navy) 60%,var(--navy-accent) 100%);border-radius:16px;padding:28px;color:#fff;margin-bottom:24px}
+.overview-hero h2{font-family:'Noto Serif TC',serif;font-size:23px;font-weight:900;letter-spacing:0;margin-bottom:7px}
+.overview-hero p{font-size:15px;opacity:0.85;line-height:1.75}
+
+/* ── INFO GRID ── */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.info-card{background:var(--white);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+.info-card h4{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:8px;font-weight:700;opacity:0.65}
+.info-card p{font-size:14px;line-height:1.75;color:var(--text)}
+.info-card.full{grid-column:1/-1}
+.flight-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px}
+.flight-row:last-child{border:none;padding-bottom:0}
+.flight-badge{background:var(--red);color:#fff;border-radius:6px;padding:3px 9px;font-size:11.5px;font-weight:700;flex-shrink:0}
+
+/* ── TABLE ── */
+.table-wrap{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.ov-table{width:100%;border-collapse:collapse;font-size:13.5px}
+.ov-table th{background:var(--navy);color:#fff;padding:12px 14px;text-align:left;font-weight:600;font-size:12.5px;letter-spacing:0.5px}
+.ov-table td{padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.65}
+.ov-table tr:last-child td{border:none}
+.ov-table tr:nth-child(even) td{background:#f5f7fa}
+.day-badge{display:inline-block;background:var(--navy);color:#fff;border-radius:6px;padding:2px 9px;font-size:11.5px;font-weight:700;white-space:nowrap}
+
+/* ── TIPS ── */
+.tips-card{background:var(--white);border-radius:12px;padding:20px;box-shadow:var(--shadow);margin-top:24px}
+.tips-card h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.tip-item{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px dashed var(--border);font-size:14px;line-height:1.7}
+.tip-item:last-child{border:none}
+.tip-icon{flex-shrink:0;font-size:16px;margin-top:1px}
+
+/* ── LOCAL SHOPPING ── */
+.shopping-card{background:var(--white);border-radius:12px;padding:20px;box-shadow:var(--shadow);margin-top:24px}
+.shopping-card h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.shopping-item{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:16px;border:1px solid var(--border);border-radius:12px;background:#fbfcfe}
+.shopping-thumb{width:132px;height:132px;border-radius:10px;object-fit:cover;object-position:center 45%;box-shadow:0 2px 10px rgba(26,39,68,0.12)}
+.shopping-info{min-width:0}
+.shopping-name{font-size:17px;font-weight:700;color:var(--navy);line-height:1.35}
+.shopping-ja{font-size:12.5px;color:var(--text-light);margin-top:2px;line-height:1.5}
+.shopping-desc{font-size:14px;line-height:1.75;color:#374151;margin-top:9px}
+.shopping-meta{display:grid;gap:6px;margin-top:10px;font-size:13px;line-height:1.6}
+.shopping-meta-row{display:grid;grid-template-columns:78px minmax(0,1fr);gap:7px}
+.shopping-meta-label{font-weight:700;color:var(--navy)}
+.shopping-note{font-size:11.5px;color:var(--text-light);margin-top:10px}
+.shopping-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.shopping-link{display:inline-flex;align-items:center;border-radius:20px;padding:4px 11px;background:#e6ecf5;color:var(--navy);font-size:11.5px;font-weight:700;text-decoration:none}
+.shopping-link:hover{background:#d9e3f1}
+
+/* ── DAY HEADER ── */
+.day-header{background:linear-gradient(150deg,#0d1b38 0%,var(--navy) 60%,var(--navy-accent) 100%);border-radius:16px;padding:26px;color:#fff;margin-bottom:28px;position:relative;overflow:hidden}
+.day-header::after{content:'';position:absolute;right:-20px;top:-20px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.04)}
+.day-num{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:6px;font-weight:600}
+.day-title{font-family:'Noto Serif TC',serif;font-size:27px;font-weight:900;line-height:1.18;letter-spacing:0}
+.day-city-pill{display:inline-block;background:var(--red);border-radius:20px;padding:5px 16px;font-size:13px;margin-top:12px;font-weight:500}
+
+/* ── TIMELINE ── */
+.timeline{display:flex;flex-direction:column;gap:10px;position:relative;padding-left:0}
+.timeline::before{
+  content:'';position:absolute;
+  left:13px;
+  top:0;bottom:0;
+  width:2px;
+  background:linear-gradient(to bottom,var(--navy-accent),var(--navy));
+  border-radius:2px;opacity:0.4;
+  z-index:0;
+}
+.stop{
+  display:grid;
+  grid-template-columns:28px 1fr;
+  align-items:start;
+  gap:10px;
+  position:relative;
+  z-index:1;
+}
+.stop-dot{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--navy);
+  color:#fff;
+  border:none;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;
+  flex-shrink:0;
+  margin-top:10px;
+  z-index:2;
+  cursor:pointer;
+  transition:background 0.18s,transform 0.15s;
+  user-select:none;
+}
+.stop-dot:hover{background:var(--navy-accent);transform:scale(1.12)}
+.stop.transport .stop-dot{
+  background:var(--navy-accent);
+  width:14px;height:14px;margin-top:17px;margin-left:7px;
+  cursor:default;
+}
+.stop.transport .stop-dot:hover{transform:none}
+.stop.transport .stop-dot::after{display:none}
+.stop-card{background:var(--white);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;cursor:pointer;transition:box-shadow 0.2s,transform 0.15s}
+.stop-card:hover{box-shadow:0 4px 24px rgba(26,39,68,0.14);transform:translateY(-1px)}
+.stop-card.transport-card{background:var(--navy);cursor:default;transform:none}
+.stop-card.transport-card:hover{transform:none;box-shadow:var(--shadow)}
+.stop-head{display:flex;align-items:center;gap:12px;padding:15px 16px}
+.stop-icon{font-size:21px;flex-shrink:0;line-height:1}
+.stop-info{flex:1;min-width:0}
+.stop-label{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:3px;color:var(--navy);opacity:0.55}
+.stop-name{font-size:15px;font-weight:700;line-height:1.3;color:var(--navy)}
+.transport-card .stop-name{color:#fff;font-size:14px}
+.transport-card .stop-label{color:rgba(255,255,255,0.55)}
+.stop-arrow{font-size:12px;color:var(--navy);opacity:0.4;transition:transform 0.25s;flex-shrink:0}
+.stop-card.open .stop-arrow{transform:rotate(180deg);opacity:0.7}
+.stop-body{max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(0.4,0,0.2,1)}
+.stop-body.open{max-height:600px}
+.stop-body-inner{padding:0 16px 16px;border-top:1px solid var(--border)}
+.stop-body-inner p{font-size:14.5px;line-height:1.85;color:#374151;margin-top:12px}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tag{display:inline-block;border-radius:20px;padding:3px 12px;font-size:12px;font-weight:600}
+.tag.food{background:#fef3e2;color:#92580a}
+.tag.sight{background:#e8f0fc;color:#1a4ea8}
+.tag.event{background:#fce8f3;color:#8f166e}
+.tag.transport{background:#e6ecf5;color:#1a2744}
+.tag.hotel{background:#e6ecf5;color:#1a2744}
+
+/* ── SECTION TITLE ── */
+.section-title{font-size:11.5px;letter-spacing:2px;text-transform:uppercase;color:var(--navy);opacity:0.5;font-weight:700;margin:28px 0 14px;display:flex;align-items:center;gap:8px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── HOTEL INLINE PILLS ── */
+.hotel-pill{background:#e6ecf5;color:#1a2744;border-radius:20px;padding:3px 12px;font-size:12px;font-weight:600}
+
+.view{display:none}.view.active{display:block}
+html[lang="de"] .banner-title,
+html[lang="de"] .overview-hero h2,
+html[lang="de"] .day-title{font-family:'Noto Sans TC',sans-serif}
+
+@media (max-width: 640px){
+  .banner-content{padding:78px 24px 30px}
+  .lang-switch{top:22px;right:20px;border-radius:22px;padding:4px;background:rgba(255,255,255,0.14);box-shadow:0 8px 24px rgba(0,0,0,0.14)}
+  .lang-btn{font-size:13px;padding:7px 13px;border-radius:18px}
+  .banner-eyebrow{max-width:250px;line-height:1.7;margin-bottom:14px}
+  .banner-title{font-size:clamp(38px,12vw,54px);line-height:1.12}
+  .banner-sub{font-size:15px;line-height:1.55}
+  html[lang="de"] .banner-sub{font-size:clamp(12px,3.55vw,15px);white-space:nowrap}
+  .banner-pills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:20px}
+  .pill{width:100%;min-width:0;padding:8px 10px;border-radius:26px}
+  .pill-ja{font-size:16px;white-space:nowrap}
+  .pill-en{font-size:11px}
+  .tabs-wrapper{position:sticky;top:0}
+  .tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));overflow:visible;gap:3px;padding:5px}
+  .tab{min-width:0;width:100%;padding:8px 2px 9px;border-bottom-width:3px;border-radius:7px 7px 0 0;line-height:1.18}
+  .tab-day{font-size:11px;letter-spacing:0.2px;white-space:nowrap}
+  .tab-city{font-size:12px;line-height:1.12;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+  html[lang="de"] .tab-city{font-size:11.5px}
+  .shopping-item{grid-template-columns:92px minmax(0,1fr);gap:12px;padding:12px}
+  .shopping-thumb{width:92px;height:112px}
+  .shopping-name{font-size:15px}
+  .shopping-meta-row{grid-template-columns:1fr;gap:0}
+}
+
+@media (min-width: 641px){
+  .tab{min-height:56px}
+}
+</style>
+  <!-- Favicon & PWA Icons -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0id2hpdGUiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIzMCIgZmlsbD0iI0JDMDAyRCIvPjwvc3ZnPg=="/>
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAABC0lEQVR42mP4T2PAMGrBULLg7/cfP569+vbgKZAEsqlmAdCs94fPPpm5+k7VxOvpTVcTaoAkkA0UAYoTtImABR9OXrrfNvuCb84Rebc9DLrICCgCFAfKAtWQacGrjfuA7j0k4YhmNDICygLVAFWSbAFQz6WQIjxGIyOgSlx2MOAKGaC7iDQdgoDqsYYVA9ZYBYYs/pDBGlZAXZhxjsUCYNoAxh5JpkMQUBdQL2ELgOkPM80Qg4C6gHoJWAD0IzCNk2E6BAH1ooUSugXAXArMR2RbANQLNAGfBcCSgNT0g5aWgCYMqA9oHgc0T0X0yAc0z8k0L4voUZrSoz6gR41GjzqZHq2K0ZYdrS0AAOrzROhtxHf9AAAAAElFTkSuQmCC"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAJS0lEQVR42u2dTWhTWRiGLRS3I8xqYKAMuBgYptAiyChdDBQ6oJRBaIUIuqmLQguWChVFugi4iBRRFOqqxpXowpKCEOjfTJMZUzW0CaSmhpKiaElSWltSorS98yZxnIz2N7n3np/7vnyUkt6c853vPr33/J8DBkVtowMMAUU4KMJBEQ6KcFCEgyIcFOGgCAdFOCjCQVGEgyIcFOGgCAdFOCjCQREOinBQhIMiHBRFOCjCQREOinBQhIMiHBThoAgHRTgowkFRDoVjI/cht5DJxpMrL2JLgfDi8NPMk4n00HjKN4af+B2f4HP8FdfgSlxPOLTVx8Xl1chsxh986/XN93kTl2/OtLujZy5NNXeGG88/bzg3edQVOnI6VN+Kn/gdn+Bz/BXX4Epcj2/hu0gB6SA1wqG21rNrK9Px1OOR+Rv3412eSEv3s+Nng4dPjH3zy/CBn/dr+Ba+ixSQDlJDmkgZ6SMXwqESE+8no/gvT1y5FWm9iCfBH982lEHDzoY0kTLSRy7ICznqR4lWcKB+sPDQn7h6e/rUhb9+bB6uqjWdiS2sqhZ5IUfki9zhA+GQS8uhyOs7D2JtvfhvHjlYbwcTXxnyRe7wAZ7AH8IhWJsbm2hTJK/fQz0g8MNvQpj42uAJ/IFX8A0eEg4xTwu0IPA8//O7XyXBotTgFXyDh+o+RZSEA+/1N3cfRV09E983SohFqcFD+AlvVayLKAYHWgSpwdGXHdf+/ul3ybEoNXgLn+G5Wi0aleBYjcwmPQPhxvMKYVFq8Bz+oxSEw2Slh8Zn2t3y1DrLrquiFCgL4TBHuXdpvLOnTnbY1G9hfb8IyoISoVyEo7JXSfTVnLs/dOS0DliUGEqEcqF0hKNMLQXC8S5PoKZJMzI+vWJqmlA6lJFw7FsZfzDW1jt+6JiWZBQNpUMZUVLCsQ+lfGPRM5dGqus0JuNTp3t1HUqK8hKOvZExOBppvag9FqWG8qLUhGP3Z4bTyPiPD8meH3LBgbcvnrEOJKNoKLtU9Q+J4EC9HbUzJ9Qzdqh/IALytF9kgQMtfrTr9G6b7LH9gjhI0v8hBRy5d+k5d7+u/Rll9H8gGjL0n0oBx5u7j/TrA62w/xQxIRz5EbX8uAmZ+L8hJsLH5wTDsRqZnWl3azKiZvb4HCIjdnxfJBzr2bWkZ0D1UXhLx/cRH4Hzg0TCkRocVXfmjm3zgwT2nAqDIxtPvuy4xtu/qyFKouafCoMDtXG15oEKnH8qquUiBo7lUCTq6uGN32u3uqtHyPoGAXBsbmzO93nlX1Ug1foGRMz+9VEC4FgKhKdPXeAt35chYvaPuQiAI3n9npxr1GQ2RAxx0xwOvDsjLd282eVM+GjptrnmYTccr+88YK9X2X1iiJ62cKC9Hmvr5W0u2xA9O/s8bIVj4aGfo68VjtYihhrCsZ5dS1y9LWpnFU2mih2sRwxtG22xD473k1G2YE1p0yKSusHx1uvL79PFG1yZIYaIpFZw5N8pV25x3oYp8zwQSXveLDbBsTIdd+ZqFItWuCCe+sCRejzCdoqJbRbEUx845m/ct2KnWGcaIol4agLHx8XleJeHN9VEQzxt2H/dDjhWI7McTzF9nMWGucd2wJHxB58dP8s7aqIhnjasqrUDDrTLg4dP8I6aaIinDb0ddsAx3+ct7xQL2g7neyCqysOxkfuQuHyTt9N0Q1StPj/KcjhyC5n8mjbeTrMNUUVs1YYjG086eT8WS3d6sXpuh+VwrLyITTV38l6av9K6uROxVRuOpUCYax4tWilp9Xx0y+FYHH76vOEc76XphqgitmrDkXkyMXnUxXtpuiGqiK3acKSHxjkea9HYrNW7u1gOR8o3Fqpv5b00H476Vqv3LeWTg08O1jlY52Brha0V9nPQtOjnYA8pe0g5tsKxFY7KclSW8zk4n4MzwTgTjHNIOYdUWjg4+5yzz7cV161w3cq24oo3rnjbsU7KtbJcK7vtwD1X2XOV/bad6Nyfg/tzbCfu7MOdfXbp7eCeYNwTbGtxN0FTTM/dBLkPaeWm7T6kBncwNqOdoucOxgb3Pq/YdN773OCpCRWY5qcmGDxvpbLxFM3PWzF4UlNZ5oiTmgye8VZuC9YRZ7zxdMj9moNOhzR4rux+J5o751zZongi9R7NcSdSGzzLfs/mxLPs85M8Bke5UnLXNY+IkqgbJBKO9exa0jPAPrEder0QH9tGUuSCwyjMPc6vh+M8j63mbSAyNswilhcOo7C7y9TJDtLw5Trpkx1W782iABzFlgtHa78YfRXVQpEOjty79Jy7P1DTRCzyVY2aJkQDMSEc/1Y+oq/iXZ7xQ8ccTgYigDggGjLcFFngKI65xNp6R6rrnDvRq7oOEbB/DEUBOIzCqlon7/SCstuwAlZVOIzCvqXOXOGCUlu9r6jycBR7Tp3GR54McT2hKsFRfH7gGeuE+gfKiJLK9syQGo5i/QO1M73bLygdyihVPUMNOIrtF7TrdO3/QLlQOnnaJorBUez/mHP369d/ihKhXJL0Z6gKR7H/9M3dR/nxFz3G56pqURaUSIY+UOXh+Dw+N9PuVn18H/6jFMJH1HSDwyiM7yc9A+rOD4Ln8F/sKLy2cBiF+UGpwdGXHdfUmn8Kb+EzPBc4c0d/OIrKxpN4Z0ddPfKvb4CH8BPeipoH6jg4iloOReb7vNOnLsi5fg5ewTd4KGRVgdPhMArro5YC4eT1e5GWbnnqqvAE/sAr+Gb/SiTCscVT5PWdB7G23tCR06L2h0G+yB0+wBN1nxYawvG5LrLw0J+4ehvP8/z+Y/b0i1TVIi/kiHyRu4p1C0fA8blF834y+tbrS1y5FWm9iP9mK/bHRZpIGekjF+SFHNVqiTgUjlJKVqbjqccj8zfux7s8qAc8O342ePhEeed74Fv4LlJAOkgNaSJlpK8fE46Ao1QfF5dXI7MZfxD/5WhBJC7fnGl3R89cmmruDDeef95wbvKoC0+CUH0rfuJ3fILP8VdcgytxPb6F7yIFpGPDvuOEQ5g2ch9yCxnUD1ZexNCmWBx+mnkykR4aT/nG8BO/4xN8jr/iGlxp9ZlIhIMiHBThoAgHRTgoinBQhIMiHBThoAgHRTgowkERDopwUISDoggHRTgowkERDopwUISDIhwU4aAIB0U4KIpwUISDIhwU4aAIB0U4KEn1DyV4olwx4na4AAAAAElFTkSuQmCC"/>
+  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoi5pel5pys5YyX5rW36YGTOOaXpemBiiIsInNob3J0X25hbWUiOiLljJfmtbfpgZMiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFNQUFBQURBQ0FJQUFBRGR2dnRRQUFBS0drbEVRVlI0MnUyZFQyaFQyUjdIaFM1bnRyTjRDM2VQMlQzTGU0c3BERGd3QTZJZ1Q0VHlIaUlNS2wyb3FJaWlDeXU2RUhGUlpMQkNCMEhvb2xBSWduUVJYWWdqMHo1OXhtY2RrMXByYW8waDB4Z05UYVZSMjhTVUpwbHZHeG0wdyt1MFNlNjU1OTc3K2ZLamhEUTU5M2QrOThQTitmTTc1NnlySXRTQTFoRUNCRUFJZ0JBQUlRQkNDSUFRQUNFQVFnQ0VFQUFoQUVJQWhBQUlJUUJDQUlRQUNBRVFRZ0NFQUFnQkVBSWdCRUFJQVJBQ0lBUkFDSUFRQWlBRVFBaUFFQUFoQkVBSWdCQUFJUUR5cThxbCtWSnVwcGpLek1hVGIyUGpiNFlmNXlNaitic3gvZFZydmFQMzlWOTlScDhrWEVFSGFLRlFuRXRNenR5SlRnM2Nlbkg1YXFxck45SFpQWDd3M05pZVU2TTdqbzlzUHh6ZGVpQzZaZC9Eelh2MVY2LzFqdDdYZi9VWmZWS2YxN2YwWFpXZ2NsUWFBQVVBbXJuQ3U5R0pYSGd3M1JONmR1TEMySzZUNHVQZTMvOTFlLzJtbnovNzZxZDFmMXU5NmZQNmxyNnJFbFNPU2xPWktsbmw2eW9BNUN2TlQrZjFuTWowRHVqSm9hZkkvYmFkLy9uTHQydkNaVFdtTWxXeXl0ZFZkQzFkVWRjRklHKzNhZFIyMGIyY09IWmV2MEgvL2V2V3BrUHovMHpYMGhWMVhWMWRQdmk0emVSUGdONW5wdlJya2p4ejZWSDcwYnRmL3RNWU4zODBYVjAreUJQNUk2OEF5SGFwUGZ1cS8vclRJMTBQTnU3KytmTTJGOUg1cE1IMGVadjhrVmZ5VFI0Q2tJMHFQRSsvN0F2SDk1Lzkzei8rYlFrM2Z6VDVKZy9scDd3RklGdFV5azVucjl4UTcxcDlJbXZSK2Rqa3A3eVZ6L0ljZ054VXBWSjVmVE9pWHMvdzE5OTdBcDJQVFQ3TGMvbXZXZ0NRQzVxTkp5Y3Y5c2UySGJLbnJWTkgyMGorcXhhcUN3QVpmUENVeTdsclEvb1ZjTGVIMWNTZW11cWlHcWxlQU9TNGlxbE11aWNVM1hyZ3A1WldIOUR6d1ZwYVZTUFZTN1VESUFlVmo0eW8zWEJ2UTd0LzBQbTRjYjJoWGJWVEhRSElFZVhDZzA4NlRnOTk4WTB2NmFtWmFxYzZxcVlBMUV3dEZJb3YrOElqMncvN0dKMlBUVFZWZlQweHcrOEJnRXE1bWZTUG9WKys2d2dJUFRWVGZWVnIxUjJBR3RMN3pOU3ZQL1RkYjlzWktIcHFwbHFyN3BiUG9Ga05VREdkVFhYMWVtVjgyYUV4YTBWQWNRQ2dlcDQ5aS9TMHRnZVduZzhNdGJZckR0WStoeXdGU0wvOWVub0grZG16N0Rta2FOalpIcklSSVBVKzFINE1acnRuaGZhUVltSmh2OHhHZ05TRERWcWZhNVg5TWtVR2dQNTh0REE0NHoxMWpBL1pOc1pvRjBENXlNaVRqdE9Bc29JcFBsYk5kVmdFVURHVlNYUjIrM3Vtb2lsekhZcVNQWE91dGdCVUtaZlRQU0cvenBJMmZjNVZzYklrOThNV2dITFhoaFl6Tk9CamRhWllLV0lBOUVHejhlVDR3WE8reXU5eFBuOUlFYk1oajlGOWdDcVZ5dVRGZm4va0Zock9ZMVRjWE0rbmRoK2cxemNqc1cySEFLSU9VOXdVdlVBRFZNcE9xMC9oM2F4NDEzUHlGVDEzMXdhNURGRDJ5ZzB2cnNpeGFtMlFZaGhRZ0FyUDA0dHRaemhvekJSREY5ZTV1Z25ReTc0dzgrMU5tYXQzY1k3TU5ZRG1FcFB4L1dlNS9VMHhSZEt0UFJ0Y0EraFYvM1diZDBId2xpbVNpbWVBQUhxZm1YcDZwSXNiMzBSVFBGM0pXblFIb0Z4NDhNSEczZHoxSnByaTZVcW1od3NBbFV2enlUT1hHUHRwK3BpUW9tcCtMejBYQUhvei9QaFIrMUZ1ZWROTlVWVnMvUTlRcG5lQW1TK0hac2NVVzU4RE5EK2RuemgybnB2dGtDbTJodmNXTmczUXpKMG9lVCtPNWdrcHduNEdTTTlZay9zMUI4MFVXOE8vWWtZQldwZ3JKRHE3dWMyT21pSnM4cXdGb3dDOUc1MFkzWEdjZSt5b0tjS0tzejhCeW9VSFdXOXFZQTJyeVJGRm93Q2xlMEpPbkhLQ0xUdnpSWEgySVVBTGhlS3pFeGU0d1FaTWNUYTJpdDRjUUhPSnliRmRKN203Qmt4eE5wYmRZUTZnbVR2Umg1djNjbmNObU9Kc2JEVElIRUJUQTdmSVB6U1dvNmhvK3cyZ0Y1ZXYzbDYvaWJ0cndCUm5SZHR2QUtXNmV0ZDZMaWxXWjJySFoxOHAycjRDcUZ5YVp3emE4SGkwbWR3Z1F3Q1Zjak9zNERHODFzZk1ub3FHQUNxbU1tTjdUbkZmemZYazk1d3lzNGVRSVlCbTQwbG13UXpQaUpuWnU4TVFRRzlqNCt4OGFIZzNSY1hjUHdDOUdYNU1IcG5oekRJeitkR0dBTXBIUnFKYjluRmZ6UUcwWlorWnZUaE5BWFEzeGp5RzRka014WnduRU1ZVGlEWVFiU0I2WWZUQ0dBZGlISWlSYUN5d0k5SE1oVEVYeG13OHMvSGtBNUVQUkVZaUZ0Q01SSEtpeVlsdVNLektZRlZHUTJKZEdPdkNHaElyVTFtWjJxaFlHOC9hK0liRTdoenN6dEdRMkIrSS9ZRWFhd2F4UXhrN2xEVW85a2gwMUh5K1IyS1ZYVnFkenlQeitTNnQ3QlB0cVBsL24rZ3FPOVU3Wm9IWXFiN0tXUm1PV1ZET3l1QzBIa2RTT0lKeldrK1Y4OEljc0FDZEYxYmx4RUlITEZnbkZsWTVNN1dwRnJnelU2dWMydHhVQytLcHpWWE9qVzllL21FUXo0MlhDcy9UclBWcHlnb2VSVEtJQUVuWkt6ZUd2LzRlQ09vMlJVOHhkUEVPdWd4UUtUdWQ2T3htVEtqdXNSOUZUekVNTGtEUzY1dVIyTFpEMEZDSEtXNktucnUzejMyQUtwWEs1TVYrWnNmcW1QbFMzQlM5b0FOVVhkcTdZN0UxM2RJS0ZxdTFsbFpGek16K0d4NEFhSEZ5NDlvUWVVSnJ5dnRSeEd5NGNiWUFWQ21YMHoyaGV4dmFnZVBQQjM0MnRDdFdpaGdBZmFKaUtxTSt4ZEFYMzRESUNxYjRLRXBtOXY3eEdFRFZwYjA0bjNTY2hwSVZUUEV4czN1bUp3R3FaWHF3bStJS094KzZrclBoSllCcWMyUy9mTmNCTHN0TU1YRnh6c3RMQUMwVWl1a2ZRNnhoWGJiZVZERXh0dUxkMndCVmwvWlUvUFdIUHVicWY1OXZWelRNN0hub0U0Q3FTMW1McWE3ZWU2MUI3OWdyQW9xREs5bUczZ1pvc1dPZnppNHlGT0Rua09xdUNDZ08xdDRqcXdHcVBZZjA5QTVtZTBpMVZ0MnRmZlo0QTZCYWUwanR4NkQxeTFSZjFkck9kby9IQUtyMXk5U0REYzc0a0dxcStsclk1L0lxUUwrUE1UN3BPTzN2dVE3VlRuVzBiYlRRSndEVjVqb1NuZDErblhOVnZWUTdxMllxL0FaUWJjNDEzUk5helAzd1UvNVFTNnRxcEhyWk0wdnFXNENxUzdrZnVXdEQ0d2ZQK1NPUFViVlFYVlFqU3pJMC9BOVFUYlB4NU9URi90aTJROTdOeVpmbjhsKzFzQ0czTUhBQVZaZnlxVi9maktqZDRNVzFRZkpabnN0LzEvT2Fnd3ZRaDRHaTdIVDJ5ZzM5Q25obHpGcCt5bHY1N082S0hBRDZSSVhuNlpkOTRmaitzemJ2MlNEZjVLSDhkSEV0S1FDdHBMbkU1S3YrNjArUGREM1l1TnVldHBFOGtUL3lTcjY1dFFzQ0FLMUI3ek5UdWZCZzhzeWxSKzFIM2UycDZlcnlRWjdJSDh0bnRRQm91Y3FsK1RmRGp6TzlBeFBIemtlM0hqQzVQN1d1cFN2cXVycTZmREMvOHh3QU5WUHowL21aTzFIZFMvVjZSbmNjdjkrMjA0a3pYMVNtU2xiNXVvcXVwU3NhM25FWGdCelh3bHpoM2VpRWZrM1NQYUZuSnk2TTdUcjVjUE5lOVlsdXI5KzAxdk5jOVhsOVM5OVZDU3BIcGFsTWxhenlUWjQwQUVEdXdWUW9xajJyNThUVXdLMFhsNittdW5yMTVGRHZlbXpQS1QxRlJyWWYxbTlRZE1zKzhhRy9lcTEzOUw3K3E4L29rL3E4dnFYdnFnU1Y0NG1aY3dCeXZNMVV5czBVVTVuWmVQSnRiRnh0bDN4a0pIODNwcjk2clhmMHZ2NnJ6L2k0VFFOQUNJQVFBQ0VBUWdpQUVBQWhBRUlBaEJBQUlRQkNBSVFBQ0NFQVFnQ0VBQWdCRUFJZ2hBQUlBUkFDSUFSQUNBRVFBaUFFUUFpQUVBSWdCRUFJZ0JBQUlRUkFDSUFRQUNFQVFnSFhiK1N5RjQvZ3AwMWhBQUFBQUVsRlRrU3VRbUNDIiwic2l6ZXMiOiIxOTJ4MTkyIiwidHlwZSI6ImltYWdlL3BuZyJ9XSwidGhlbWVfY29sb3IiOiIjMWEyNzQ0IiwiYmFja2dyb3VuZF9jb2xvciI6IiNmOGY2ZjIiLCJkaXNwbGF5Ijoic3RhbmRhbG9uZSJ9"/>
+  <meta name="theme-color" content="#1a2744"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="北海道8日遊"/>
+</head>
+<body>
+
+<div class="banner">
+  <svg class="banner-bg" viewBox="0 0 800 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="650" cy="40" r="180" fill="rgba(45,74,138,0.18)"/>
+    <circle cx="750" cy="160" r="100" fill="rgba(255,255,255,0.04)"/>
+    <circle cx="80" cy="30" r="1.5" fill="rgba(255,255,255,0.4)"/>
+    <circle cx="200" cy="15" r="1" fill="rgba(255,255,255,0.3)"/>
+    <circle cx="350" cy="40" r="1.2" fill="rgba(255,255,255,0.35)"/>
+    <circle cx="500" cy="20" r="1" fill="rgba(255,255,255,0.3)"/>
+    <circle cx="620" cy="50" r="1.5" fill="rgba(255,255,255,0.25)"/>
+    <circle cx="720" cy="25" r="1" fill="rgba(255,255,255,0.4)"/>
+  </svg>
+  <svg class="banner-mountain" viewBox="0 0 800 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 80 L120 30 L220 55 L340 10 L420 45 L560 5 L680 40 L800 20 L800 80 Z" fill="rgba(255,255,255,0.04)"/>
+    <path d="M0 80 L80 50 L180 68 L300 38 L400 60 L520 28 L640 55 L760 35 L800 50 L800 80 Z" fill="rgba(255,255,255,0.06)"/>
+  </svg>
+  <div class="banner-content">
+    <div class="lang-switch" aria-label="Language">
+      <button class="lang-btn active" data-lang-button="zh" onclick="setLanguage('zh')">中文</button>
+      <button class="lang-btn" data-lang-button="de" onclick="setLanguage('de')">Deutsch</button>
+    </div>
+    <div class="banner-eyebrow">✈ 2026 Japan Hokkaido Vacation</div>
+    <div class="banner-title">日本<span>北海道</span>8日遊</span></div>
+    <div class="banner-sub">2026年8月12日(三) — 8月19日(三)</div>
+    <div class="banner-pills">
+      <button class="pill red" data-city="札幌" onclick="jumpToCity('札幌')"><span class="pill-ja">札幌</span><span class="pill-en">Sapporo</span></button>
+      <button class="pill" data-city="小樽" onclick="jumpToCity('小樽')"><span class="pill-ja">小樽</span><span class="pill-en">Otaru</span></button>
+      <button class="pill" data-city="富良野" onclick="jumpToCity('富良野')"><span class="pill-ja">富良野</span><span class="pill-en">Furano</span></button>
+      <button class="pill" data-city="登別" onclick="jumpToCity('登別')"><span class="pill-ja">登別</span><span class="pill-en">Noboribetsu</span></button>
+    </div>
+  </div>
+</div>
+
+<div class="tabs-wrapper">
+  <div class="tabs" id="tabs">
+    <button class="tab active" onclick="showView('overview',this)"><span class="tab-day">總覽<br>全部</span><span class="tab-city">行程</span></button>
+    <button class="tab" data-city="札幌" onclick="showView('day1',this)"><span class="tab-day">第1天<br>8/12</span><span class="tab-city">札幌</span></button>
+    <button class="tab" data-city="札幌" onclick="showView('day2',this)"><span class="tab-day">第2天<br>8/13</span><span class="tab-city">札幌</span></button>
+    <button class="tab" data-city="小樽" onclick="showView('day3',this)"><span class="tab-day">第3天<br>8/14</span><span class="tab-city">小樽</span></button>
+    <button class="tab" data-city="札幌" onclick="showView('day4',this)"><span class="tab-day">第4天<br>8/15</span><span class="tab-city">札幌</span></button>
+    <button class="tab" data-city="札幌" onclick="showView('day5',this)"><span class="tab-day">第5天<br>8/16</span><span class="tab-city">札幌</span></button>
+    <button class="tab" data-city="富良野" onclick="showView('day6',this)"><span class="tab-day">第6天<br>8/17</span><span class="tab-city">富良野</span></button>
+    <button class="tab" data-city="登別" onclick="showView('day7',this)"><span class="tab-day">第7天<br>8/18</span><span class="tab-city">登別</span></button>
+    <button class="tab" data-city="札幌" onclick="showView('day8',this)"><span class="tab-day">第8天<br>8/19</span><span class="tab-city">札幌</span></button>
+  </div>
+</div>
+
+<div class="main">
+
+<div class="view active" id="overview">
+  <div class="overview-hero">
+    <h2 style="display:flex;align-items:center;gap:10px"><svg width="48" height="56" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px">
+  <path d="M28 22 L18 118 L102 118 L92 22 Z" fill="#c8a84b"/>
+  <path d="M31 42 L19.5 116 L100.5 116 L89 42 Z" fill="#9a6e08" opacity="0.55"/>
+  <path d="M92 46 Q116 46 116 72 Q116 98 92 98" fill="none" stroke="#c8a84b" stroke-width="8" stroke-linecap="round"/>
+  <path d="M92 58 Q108 58 108 72 Q108 86 92 86" fill="none" stroke="#a87d10" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+  <ellipse cx="60" cy="26" rx="32" ry="9" fill="white" opacity="0.95"/>
+  <circle cx="33" cy="21" r="10" fill="white" opacity="0.9"/>
+  <circle cx="46" cy="14" r="13" fill="white" opacity="0.95"/>
+  <circle cx="61" cy="11" r="15" fill="white" opacity="0.97"/>
+  <circle cx="77" cy="14" r="12" fill="white" opacity="0.95"/>
+  <circle cx="90" cy="21" r="9" fill="white" opacity="0.9"/>
+  <circle cx="46" cy="12" r="5" fill="white" opacity="0.4"/>
+  <circle cx="62" cy="9" r="6" fill="white" opacity="0.38"/>
+  <path d="M38 48 L26 108" stroke="rgba(255,255,255,0.18)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M47 47 L37 108" stroke="rgba(255,255,255,0.08)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="28" y1="60" x2="92" y2="60" stroke="rgba(255,255,255,0.28)" stroke-width="0.8"/>
+  <line x1="28" y1="84" x2="92" y2="84" stroke="rgba(255,255,255,0.28)" stroke-width="0.8"/>
+  <text x="60" y="76" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="700" letter-spacing="3.5" fill="rgba(255,255,255,0.85)">SAPPORO</text>
+  <text x="60" y="96" text-anchor="middle" font-family="Georgia,serif" font-size="9" letter-spacing="2" fill="rgba(255,255,255,0.5)">✦ BEER ✦</text>
+</svg><span>2026年8月北海道旅遊</span></h2>
+    <p>以札幌為基地，每日放射狀出遊。8月北海道氣溫約20–27°C，恰逢薰衣草季末、啤酒花園旺季，全程7晚住同一飯店，省去搬行李的煩惱。</p>
+  </div>
+  <div class="info-grid">
+    <div class="info-card">
+      <h4>✈ 去程</h4>
+      <div class="flight-row"><span class="flight-badge">CI130</span><span>8/12（三）抵達新千歲 13:35</span></div>
+    </div>
+    <div class="info-card">
+      <h4>✈ 回程</h4>
+      <div class="flight-row"><span class="flight-badge">CI131</span><span>8/19（三）新千歲出發 15:05</span></div>
+    </div>
+    <div class="info-card full">
+      <h4>🏨 住宿</h4>
+      <div style="font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px">Hotel ONE'S RESIDENCE</div>
+      <div style="font-size:13px;color:var(--text-light);margin-bottom:10px">中央區南8條西2丁目5-67（地鐵中島公園駅步行5分）</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <span style="background:#e6ecf5;color:#1a2744;border-radius:20px;padding:3px 12px;font-size:12px;font-weight:600">7晚</span>
+        <span style="background:#e6ecf5;color:#1a2744;border-radius:20px;padding:3px 12px;font-size:12px;font-weight:600">€110/晚</span>
+        <span style="background:#e6ecf5;color:#1a2744;border-radius:20px;padding:3px 12px;font-size:12px;font-weight:600">小廚房・洗衣機</span>
+        <span style="background:#e6ecf5;color:#1a2744;border-radius:20px;padding:3px 12px;font-size:12px;font-weight:600">有電梯・冷氣</span>
+      </div>
+    </div>
+  </div>
+  <div class="section-title">8天行程一覽</div>
+  <div class="table-wrap">
+    <table class="ov-table">
+      <thead><tr><th>日期</th><th>地點</th><th>交通</th><th>亮點</th></tr></thead>
+      <tbody>
+        <tr><td><span class="day-badge">Day 1</span><br/>8/12（三）</td><td>新千歲→札幌</td><td>JR 45分</td><td>大通公園啤酒花園、成吉思汗烤羊肉</td></tr>
+        <tr><td><span class="day-badge">Day 2</span><br/>8/13（四）</td><td>札幌外圍</td><td>JR・巴士</td><td>北海道開拓の村、ES CON FIELD 職棒</td></tr>
+        <tr><td><span class="day-badge">Day 3</span><br/>8/14（五）</td><td>小樽</td><td>JR 35分</td><td>小樽運河、LeTAO起司蛋糕、海鮮丼</td></tr>
+        <tr><td><span class="day-badge">Day 4</span><br/>8/15（六）</td><td>札幌南區</td><td>地鐵・巴士・市電</td><td>札幌藝術之森、味噌拉麵、藻岩山夜景</td></tr>
+        <tr><td><span class="day-badge">Day 5</span><br/>8/16（日）</td><td>札幌市中心</td><td>地鐵・巴士・步行</td><td>莫埃來沼公園、GARAKU湯咖哩、赤煉瓦廳、北海盆踊り</td></tr>
+        <tr><td><span class="day-badge">Day 6</span><br/>8/17（一）</td><td>美瑛・富良野・旭川</td><td>JR特急+富良野線</td><td>四季彩之丘花田、羊駝、旭川拉麵</td></tr>
+        <tr><td><span class="day-badge">Day 7</span><br/>8/18（二）</td><td>登別</td><td>JR特急 70分</td><td>地獄谷、大湯沼、鬼煙火秀</td></tr>
+        <tr><td><span class="day-badge">Day 8</span><br/>8/19（三）</td><td>札幌→新千歲</td><td>JR 45分</td><td>機場拉麵道場、CI131 15:05返台</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tips-card">
+    <h3>💡 旅遊重點提示</h3>
+    <div class="tip-item"><span class="tip-icon">🎫</span><div><strong>交通券：</strong>建議購買北海道鐵路周遊券（5日），涵蓋旭川、登別特急，三人使用非常划算</div></div>
+    <div class="tip-item"><span class="tip-icon">⚾</span><div><strong>職棒門票：</strong>8/13（四）ES CON FIELD 16:00入場、18:00開打，北海道日本火腿鬥士隊對埼玉西武獅；右外野座位每人 9,000 JPY，純入場每人 4,000 JPY</div></div>
+    <div class="tip-item"><span class="tip-icon">🏮</span><div><strong>お盆旺季：</strong>8/13–16 日本盂蘭盆節，景點人潮大，熱門拉麵店建議開門前排隊</div></div>
+    <div class="tip-item"><span class="tip-icon">🌽</span><div><strong>當季食材：</strong>8月北海道玉米、馬鈴薯、哈密瓜正當季，超市或路邊攤必試</div></div>
+    <div class="tip-item"><span class="tip-icon">👕</span><div><strong>穿搭：</strong>氣溫20–27°C，早晚涼，白天可達30°C，洋蔥式穿搭最適合</div></div>
+  </div>
+  <div class="shopping-card">
+    <h3>🛍️ 當地購物</h3>
+    <article class="shopping-item">
+      <img class="shopping-thumb" src="assets/shopping/horinishi.png" alt="アウトドアスパイス ほりにし 100g" loading="lazy"/>
+      <div class="shopping-info">
+        <div class="shopping-name">Horinishi 萬用戶外香料</div>
+        <div class="shopping-ja" lang="ja">アウトドアスパイス ほりにし（100g・原味）</div>
+        <p class="shopping-desc">日本人氣萬用調味料，混合 20 種以上香料與調味料，以鹽、醬油和蒜香為主調。只要撒上去就能替雞肉、豬肉、魚、蔬菜、炒飯或露營料理提味。</p>
+        <div class="shopping-meta">
+          <div class="shopping-meta-row"><span class="shopping-meta-label">可能購買店家</span><span>KALDI Coffee Farm、Bic Camera 札幌店、Alpen Outdoors 札幌發寒店</span></div>
+          <div class="shopping-meta-row"><span class="shopping-meta-label">參考價格</span><span>約 ¥842–864／100g</span></div>
+        </div>
+        <div class="shopping-links">
+          <a class="shopping-link" href="https://www.kaldi.co.jp/ec/pro/disp/1/4580504111106?sFlg=2" target="_blank" rel="noopener">KALDI 商品資訊 ↗</a>
+          <a class="shopping-link" href="https://store.alpen-group.jp/f/dsg-115669-" target="_blank" rel="noopener">Alpen 商品資訊 ↗</a>
+        </div>
+        <p class="shopping-note">價格與各分店庫存可能變動，購買前請再確認。</p>
+      </div>
+    </article>
+  </div>
+</div>
+
+<div class="view" id="day1">
+  <div class="day-header">
+    <div class="day-num">DAY 01 · 8月12日（三）</div>
+    <div class="day-title">札幌<br/>大通公園・狸小路</div>
+    <div class="day-city-pill">🛬 新千歲機場 13:35 → 札幌</div>
+  </div>
+  <div class="timeline" id="tl-day1"></div>
+</div>
+
+<div class="view" id="day2">
+  <div class="day-header">
+    <div class="day-num">DAY 02 · 8月13日（四）</div>
+    <div class="day-title">札幌<br/>北海道開拓の村・日本職棒</div>
+    <div class="day-city-pill">⚾ 北海道火腿鬥士隊</div>
+  </div>
+  <div class="timeline" id="tl-day2"></div>
+</div>
+
+<div class="view" id="day3">
+  <div class="day-header">
+    <div class="day-num">DAY 03 · 8月14日（五）</div>
+    <div class="day-title">小樽<br/>運河・海鮮</div>
+    <div class="day-city-pill">🌊 小樽一日遊</div>
+  </div>
+  <div class="timeline" id="tl-day3"></div>
+</div>
+
+<div class="view" id="day4">
+  <div class="day-header">
+    <div class="day-num">DAY 04 · 8月15日（六）</div>
+    <div class="day-title">札幌<br/>味噌拉麵・藻岩山</div>
+    <div class="day-city-pill">🏔️ 札幌拉麵</div>
+  </div>
+  <div class="timeline" id="tl-day4"></div>
+</div>
+
+<div class="view" id="day5">
+  <div class="day-header">
+    <div class="day-num">DAY 05 · 8月16日（日）</div>
+    <div class="day-title">札幌<br/>北海盆踊り・莫埃來沼公園</div>
+    <div class="day-city-pill">🏛️ 日本盂蘭盆節</div>
+  </div>
+  <div class="timeline" id="tl-day5"></div>
+</div>
+
+<div class="view" id="day6">
+  <div class="day-header">
+    <div class="day-num">DAY 06 · 8月17日（一）</div>
+    <div class="day-title">富良野・美瑛<br/>四季彩之丘・旭川拉麵</div>
+    <div class="day-city-pill">🌸 美瑛・富良野一日遊</div>
+  </div>
+  <div class="timeline" id="tl-day6"></div>
+</div>
+
+<div class="view" id="day7">
+  <div class="day-header">
+    <div class="day-num">DAY 07 · 8月18日（二）</div>
+    <div class="day-title">登別<br/>火山溫泉・地獄谷</div>
+    <div class="day-city-pill">🌋 登別一日遊</div>
+  </div>
+  <div class="timeline" id="tl-day7"></div>
+</div>
+
+<div class="view" id="day8">
+  <div class="day-header">
+    <div class="day-num">DAY 08 · 8月19日（三）</div>
+    <div class="day-title">札幌<br/>購物・新千歲拉麵道場</div>
+    <div class="day-city-pill">✈ 新千歲 CI131 15:05</div>
+  </div>
+  <div class="timeline" id="tl-day8"></div>
+</div>
+
+</div>
+
+<script>
+let currentLang = 'zh';
+
+const de = {
+  '中文':'中文','日本':'Japan ','北海道':'Hokkaido ','8日遊':'8 Tage','2026年8月12日(三) — 8月19日(三)':'12. August 2026 (Mi) - 19. August 2026 (Mi)',
+  '札幌':'Sapporo','小樽':'Otaru','富良野':'Furano','登別':'Noboribetsu','總覽':'Plan','全部':'Alle','行程':'Route',
+  '第1天':'Tag\u00a01','第2天':'Tag\u00a02','第3天':'Tag\u00a03','第4天':'Tag\u00a04','第5天':'Tag\u00a05','第6天':'Tag\u00a06','第7天':'Tag\u00a07','第8天':'Tag\u00a08',
+  '2026年8月北海道旅遊':'Hokkaido-Reise im August 2026',
+  '以札幌為基地，每日放射狀出遊。8月北海道氣溫約20–27°C，恰逢薰衣草季末、啤酒花園旺季，全程7晚住同一飯店，省去搬行李的煩惱。':'Sapporo bleibt die feste Basis, von dort aus gehen die Tagesausflüge sternförmig los. Im August liegen die Temperaturen in Hokkaido meist bei 20-27 °C; es ist das Ende der Lavendelsaison und Hochsaison der Biergärten. Alle 7 Nächte bleiben im selben Hotel, damit kein ständiges Kofferpacken nötig ist.',
+  '✈ 去程':'✈ Hinflug','✈ 回程':'✈ Rückflug','8/12（三）抵達新千歲 13:35':'12.08. (Mi) Ankunft New Chitose 13:35','8/19（三）新千歲出發 15:05':'19.08. (Mi) Abflug New Chitose 15:05',
+  '🏨 住宿':'🏨 Unterkunft','中央區南8條西2丁目5-67（地鐵中島公園駅步行5分）':'Chuo-ku, Minami 8-jo Nishi 2-chome 5-67 (5 Min. zu Fuß von Nakajima-koen Station)',
+  '7晚':'7 Nächte','€110/晚':'€110/Nacht','小廚房・洗衣機':'Kleine Küche und Waschmaschine','有電梯・冷氣':'Aufzug und Klimaanlage',
+  '8天行程一覽':'Übersicht der 8 Reisetage','日期':'Datum','地點':'Ort','交通':'Verkehr','亮點':'Highlights',
+  '新千歲→札幌':'New Chitose -> Sapporo','JR 45分':'JR 45 Min.','大通公園啤酒花園、成吉思汗烤羊肉':'Odori-Park-Biergarten, Jingisukan-Lammgrill',
+  'JR 35分':'JR 35 Min.','小樽運河、LeTAO起司蛋糕、海鮮丼':'Otaru-Kanal, LeTAO-Käsekuchen, Seafood-Don',
+  '札幌南區':'Sapporo Süd','地鐵・巴士・市電':'U-Bahn, Bus, Straßenbahn','札幌藝術之森、味噌拉麵、藻岩山夜景':'Sapporo Art Park, Miso-Ramen, Nachtblick vom Mt. Moiwa',
+  '札幌外圍':'Außenbereich von Sapporo','JR・巴士':'JR und Bus','北海道開拓の村、ES CON FIELD 職棒':'Historical Village of Hokkaido, Baseball im ES CON FIELD',
+  '札幌市中心':'Zentrum von Sapporo','地鐵・巴士・步行':'U-Bahn, Bus, zu Fuß','莫埃來沼公園、GARAKU湯咖哩、赤煉瓦廳、北海盆踊り':'Moerenuma Park, GARAKU Soup Curry, rotes Backsteingebäude, Hokkai Bon Odori',
+  '美瑛・富良野・旭川':'Biei, Furano und Asahikawa','JR特急+富良野線':'JR Limited Express + Furano-Linie','四季彩之丘花田、羊駝、旭川拉麵':'Shikisai-no-Oka-Blumenfelder, Alpakas, Asahikawa-Ramen',
+  'JR特急 70分':'JR Limited Express 70 Min.','地獄谷、大湯沼、鬼煙火秀':'Jigokudani, Oyunuma, Dämonen-Feuerwerk','札幌→新千歲':'Sapporo -> New Chitose','機場拉麵道場、CI131 15:05返台':'Airport Ramen Dojo, CI131 Rückflug 15:05',
+  '💡 旅遊重點提示':'💡 Wichtige Reisetipps','交通券：':'Bahnticket: ','建議購買北海道鐵路周遊券（5日），涵蓋旭川、登別特急，三人使用非常划算':'Empfohlen ist der Hokkaido Rail Pass (5 Tage). Er deckt die Limited Express-Züge nach Asahikawa und Noboribetsu ab und lohnt sich für drei Personen sehr.',
+  '職棒門票：':'Baseballtickets: ','8/13（四）ES CON FIELD 16:00入場、18:00開打，北海道日本火腿鬥士隊對埼玉西武獅；右外野座位每人 9,000 JPY，純入場每人 4,000 JPY':'Am 13.08. (Do) öffnet das ES CON FIELD um 16:00, Spielbeginn ist 18:00: Hokkaido Nippon-Ham Fighters gegen Saitama Seibu Lions. Sitzplätze im rechten Außenfeld kosten 9.000 JPY pro Person, reiner Eintritt 4.000 JPY.',
+  'お盆旺季：':'Obon-Hochsaison: ','8/13–16 日本盂蘭盆節，景點人潮大，熱門拉麵店建議開門前排隊':'13.-16.08. ist Obon in Japan. Sehenswürdigkeiten sind voll; bei beliebten Ramenläden am besten vor Öffnung anstehen.',
+  '當季食材：':'Saisonale Zutaten: ','8月北海道玉米、馬鈴薯、哈密瓜正當季，超市或路邊攤必試':'Im August haben Mais, Kartoffeln und Melonen in Hokkaido Saison. Unbedingt im Supermarkt oder an Ständen probieren.',
+  '穿搭：':'Kleidung: ','氣溫20–27°C，早晚涼，白天可達30°C，洋蔥式穿搭最適合':'20-27 °C, morgens und abends kühler, tagsüber teils bis 30 °C. Schichten sind am praktischsten.',
+  '🛍️ 當地購物':'🛍️ Einkaufen vor Ort',
+  'Horinishi 萬用戶外香料':'Horinishi Universal-Gewürz',
+  'アウトドアスパイス ほりにし（100g・原味）':'Outdoor Spice Horinishi (100 g, Original)',
+  '日本人氣萬用調味料，混合 20 種以上香料與調味料，以鹽、醬油和蒜香為主調。只要撒上去就能替雞肉、豬肉、魚、蔬菜、炒飯或露營料理提味。':'Beliebte japanische Allzweck-Gewürzmischung aus über 20 Gewürzen und Würzmitteln mit Salz, Sojasauce und Knoblauch. Einfach darüberstreuen: passt zu Huhn, Schwein, Fisch, Gemüse, gebratenem Reis und Campinggerichten.',
+  '可能購買店家':'Mögliche Geschäfte',
+  'KALDI Coffee Farm、Bic Camera 札幌店、Alpen Outdoors 札幌發寒店':'KALDI Coffee Farm, Bic Camera Sapporo und Alpen Outdoors Sapporo Hassamu',
+  '參考價格':'Richtpreis',
+  '約 ¥842–864／100g':'ca. ¥842-864 / 100 g',
+  'KALDI 商品資訊 ↗':'KALDI Produktinfo ↗',
+  'Alpen 商品資訊 ↗':'Alpen Produktinfo ↗',
+  '價格與各分店庫存可能變動，購買前請再確認。':'Preise und Filialbestände können sich ändern; bitte vor dem Kauf prüfen.',
+  '大通公園・狸小路':'Odori Park und Tanukikoji','新千歲機場 13:35 → 札幌':'New Chitose Airport 13:35 -> Sapporo','運河・海鮮':'Kanal und Seafood','小樽一日遊':'Tagesausflug nach Otaru','味噌拉麵・藻岩山':'Miso-Ramen und Mt. Moiwa','札幌拉麵':'Sapporo-Ramen','北海道開拓の村・日本職棒':'Historical Village und Baseball','北海道火腿鬥士隊':'Hokkaido Fighters','北海盆踊り・莫埃來沼公園':'Hokkai Bon Odori und Moerenuma Park','日本盂蘭盆節':'Japanisches Obon-Fest','富良野・美瑛':'Furano und Biei','四季彩之丘・旭川拉麵':'Shikisai-no-Oka und Asahikawa-Ramen','美瑛・富良野一日遊':'Tagesausflug nach Biei und Furano','火山溫泉・地獄谷':'Vulkanische Quellen und Jigokudani','登別一日遊':'Tagesausflug nach Noboribetsu','購物・新千歲拉麵道場':'Shopping und New Chitose Ramen Dojo','新千歲 CI131 15:05':'New Chitose CI131 15:05',
+  '住宿 CHECK-IN':'Unterkunft Check-in','晚餐・必吃':'Abendessen, Empfehlung','特殊活動':'Besonderes Event','景點':'Sehenswürdigkeit','景點・購物':'Sehenswürdigkeit und Shopping','早餐・必吃':'Frühstück, Empfehlung','必吃・甜點':'Dessert, Empfehlung','景點・壓軸':'Höhepunkt','午餐・必吃':'Mittagessen, Empfehlung','甜點・必吃':'Dessert, Empfehlung','特殊活動・壓軸':'Event-Höhepunkt','景點・散步':'Spaziergang','購物':'Shopping','出發':'Abflug','退房':'Check-out','回程':'Rückweg','必吃':'Empfehlung','體驗':'Erlebnis',
+  '公寓式飯店':'Apartment-Hotel','中島公園駅步行5分':'5 Min. zu Fuß von Nakajima-koen Station','北海道名物':'Hokkaido-Spezialität','薄野':'Susukino','8月限定':'nur im August','免費入場':'Eintritt frei','地標':'Wahrzeichen','夜景':'Nachtblick','購物':'Shopping','有屋頂・雨天OK':'überdacht, regentauglich','新鮮海鮮':'frisches Seafood','JR小樽駅前1分':'1 Min. vor JR Otaru Station','伴手禮':'Souvenirs','雙層起司蛋糕':'Double Fromage Cheesecake','堺町通り':'Sakaimachi-dori','現烤泡芙':'frische Windbeutel','年輪蛋糕':'Baumkuchen','玻璃工藝':'Glaskunst','DIY體驗':'DIY-Erlebnis','傍晚點燈最美':'abends mit Beleuchtung am schönsten','野外美術館':'Freilichtmuseum','約2小時':'ca. 2 Std.','雕塑×自然':'Skulptur und Natur','札幌名物':'Sapporo-Spezialität','お盆須排隊':'Obon: Wartezeit einplanen','奶油夾心餅乾':'Butter-Sand-Kekse','內用咖啡廳':'Café vor Ort','日本新三大夜景':'eine der neuen Top-3-Nachtansichten Japans','纜車+迷你纜車':'Seilbahn + Mini Cable Car','夏季10:30–22:00':'Sommer 10:30-22:00','戶外博物館':'Freilichtmuseum','約2–3小時':'ca. 2-3 Std.','夏季馬車':'Sommerkutsche','2023年新球場':'neues Stadion von 2023','可開合屋頂':'bewegliches Dach','需預購票':'Tickets vorher kaufen','8/13週四主場':'13.08. Donnerstag Heimspiel','16:00入場':'Einlass 16:00','18:00開打':'Spielbeginn 18:00','伊薩姆·野口設計':'Design von Isamu Noguchi','約1–2小時':'ca. 1-2 Std.','札幌湯咖哩':'Sapporo Soup Curry','大通・薄野之間':'zwischen Odori und Susukino','1878年建造':'erbaut 1878','大通駅步行5分':'5 Min. zu Fuß von Odori Station','免費入場':'Eintritt frei','時計台步行3分':'3 Min. vom Clock Tower','祈福求籤':'Beten und Omikuji','圓山公園旁':'neben Maruyama Park','北海盆唄':'Hokkai Bon Uta','太鼓':'Taiko-Trommeln','彩色花毯丘陵':'bunte Blumenteppich-Hügel','7–9月入場800日圓':'Juli-Sept. Eintritt 800 Yen','約3–4小時':'ca. 3-4 Std.','北海道湯咖哩':'Hokkaido Soup Curry','現炸馬鈴薯可樂餅':'frische Kartoffel-Kroketten','日本第一步行天國':'Japans erste Fußgängerzone','旭川駅出站即進入':'direkt ab Asahikawa Station','醬油豚骨海鮮湯底':'Shoyu-Brühe mit Schwein und Seafood','北海道三大拉麵':'eine der drei großen Hokkaido-Ramenarten','溫泉街地標':'Wahrzeichen des Onsen-Orts','免費表演':'kostenlose Vorführung','直徑450公尺火口':'450 m breiter Krater','水溫約50°C':'Wassertemperatur ca. 50 °C','地獄谷步行10分':'10 Min. zu Fuß von Jigokudani','夢元さぎり湯旁':'bei Yumoto Sagiriyu','現蒸約100日圓/個':'frisch gedämpft, ca. 100 Yen/Stück','溫泉街各店':'in Läden im Onsen-Ort','松葉蟹・毛蟹':'Schneekrabbe und Hokkaido-Krabbe','溫泉街餐廳':'Restaurants im Onsen-Ort','約20:00 & 21:00':'ca. 20:00 und 21:00','最晚11:30離開市區':'spätestens 11:30 aus der Stadt','JR札幌駅直結':'direkt mit JR Sapporo verbunden','B1-B2食品區':'Food-Bereich B1-B2','機場3F':'Flughafen 3F','10家名店':'10 bekannte Läden','白色戀人':'Shiroi Koibito','北海道牛奶霜淇淋':'Hokkaido-Milch-Softeis','建議13:30前完成報到':'Check-in bis 13:30 empfohlen',
+};
+
+Object.assign(de, {
+  '新千歲機場 → JR快速Airport（約45分）→ JR札幌駅':'New Chitose Airport -> JR Rapid Airport (ca. 45 Min.) -> JR Sapporo Station',
+  '搭地下鐵南北線至中島公園駅，步行約5分抵達飯店。放下行李稍作休息，再輕裝出發。飯店有小廚房、洗衣機，生活機能完整。':'Mit der U-Bahn-Namboku-Linie bis Nakajima-koen Station, dann ca. 5 Min. zu Fuß zum Hotel. Gepäck abstellen, kurz ausruhen und danach leicht weiterziehen. Das Hotel hat kleine Küche, Waschmaschine und gute Alltagsausstattung.',
+  '成吉思汗烤羊肉 だるま本店':'Jingisukan-Lammgrill Daruma Hauptladen',
+  '北海道最具代表性的烤肉！用特殊凸型鐵板烤羔羊肉，沾醬甘甜不羶。だるま本店是薄野最老牌名店，常年大排長龍，建議傍晚提早前往排隊。飯店步行約10分。':'Hokkaidos typisches Grillgericht: zartes Lamm auf einer gewölbten Eisenplatte, dazu eine süßliche Sauce. Daruma ist ein Klassiker in Susukino und oft sehr voll; am besten am frühen Abend anstellen. Vom Hotel ca. 10 Min. zu Fuß.',
+  '大通公園啤酒花園':'Odori-Park-Biergarten',
+  '約7月下旬～8月下旬舉辦，四大啤酒品牌（Sapporo、Asahi、Kirin、Suntory）各自設立露天攤位。青少年可喝飲料、吃北海道美食，夜晚燈光璀璨，人聲鼎沸。':'Findet etwa von Ende Juli bis Ende August statt. Die großen Biermarken Sapporo, Asahi, Kirin und Suntory betreiben eigene Außenbereiche. Jugendliche können Softdrinks und Hokkaido-Snacks genießen; abends ist die Atmosphäre lebhaft und hell beleuchtet.',
+  '大通公園 & 札幌電視塔':'Odori Park und Sapporo TV Tower',
+  '大通公園是市中心東西向的綠帶公園，長約1.5公里。公園東端的電視塔（高147.2公尺）展望台可俯瞰公園全景，夜景尤美。啤酒花園後順路散步。':'Odori Park ist ein rund 1,5 km langer Grünstreifen mitten in Sapporo. Am östlichen Ende steht der 147,2 m hohe TV Tower mit Aussicht über den Park; besonders schön am Abend. Nach dem Biergarten gut als Spaziergang.',
+  '狸小路商店街':'Tanukikoji Shopping Arcade',
+  '北海道最古老的商店街，全長約800公尺，有屋頂遮蔽，雨天也可逛。土産、藥妝、餐廳一應俱全，是回飯店路上的最佳順路購物地點。':'Eine der ältesten Einkaufsstraßen Hokkaidos, etwa 800 m lang und überdacht. Auch bei Regen gut. Souvenirs, Drogerien und Restaurants liegen dicht beieinander, ideal auf dem Rückweg zum Hotel.',
+  'JR 札幌駅 → JR函館本線快速（35分）→ JR 小樽駅｜建議08:00出發':'JR Sapporo Station -> Rapid auf der Hakodate-Linie (35 Min.) -> JR Otaru Station | Abfahrt ca. 08:00 empfohlen',
+  '小樽三角市場 海鮮丼':'Otaru Sankaku Market Seafood-Don',
+  'JR小樽駅出來即到。市場裡的食堂可自選新鮮海鮮組合成丼飯：海膽、鮭魚卵、甜蝦、螃蟹，新鮮度一流，是抵達小樽的第一站必吃。':'Direkt bei JR Otaru Station. In den kleinen Lokalen kann man frisches Seafood für eine Donburi-Schale wählen: Seeigel, Lachskaviar, süße Garnelen, Krabben. Perfekter erster Stopp in Otaru.',
+  '堺町通り 商店街':'Sakaimachi-dori Einkaufsstraße',
+  '小樽最熱鬧的購物街，玻璃工藝品、北海道牛奶甜點、音樂盒、海鮮等商家密集。從小樽駅步行約10分進入商店街，親子邊走邊吃邊買。':'Otarus lebhafteste Einkaufsstraße mit Glaskunst, Milchdesserts, Spieluhren und Seafood. Von Otaru Station etwa 10 Min. zu Fuß; gut zum Bummeln, Probieren und Einkaufen.',
+  'LeTAO 本店':'LeTAO Hauptgeschäft',
+  '小樽最知名甜點品牌，雙層起司蛋糕（ドゥーブルフロマージュ）入口即化。本店在堺町通，二樓咖啡廳可欣賞街景，建議現場享用。':'Otarus bekannteste Dessertmarke. Der Double Fromage Cheesecake ist cremig und sehr beliebt. Das Hauptgeschäft liegt an Sakaimachi-dori; im Café im 2. Stock kann man mit Blick auf die Straße essen.',
+  '北菓楼 kitakaro 本店':'Kitakaro Hauptgeschäft',
+  '北海道著名菓子店，「夢不思議」泡芙、年輪蛋糕都是人氣商品。與LeTAO相距不遠，兩家連走，本店可享用現烤泡芙。':'Bekannte Hokkaido-Konditorei. Beliebt sind die Windbeutel „Yume Fushigi“ und Baumkuchen. Nicht weit von LeTAO, daher gut kombinierbar; im Hauptgeschäft gibt es frische Windbeutel.',
+  '北一硝子 三號館':'Kitaichi Glass Sangokan',
+  '明治時代倉庫改建的玻璃工藝品店，內部有數百盞油燈燃燒，氣氛獨特而溫暖，也可體驗玻璃彩繪DIY。堺町通り末段，靠近小樽運河。':'Glaskunstladen in einem Lagerhaus aus der Meiji-Zeit. Innen brennen Hunderte Öllampen und schaffen eine warme Atmosphäre; auch Glasmalerei-DIY ist möglich. Am Ende von Sakaimachi-dori nahe dem Otaru-Kanal.',
+  '小樽運河':'Otaru-Kanal',
+  '建於1923年的磚造倉庫群與運河，是小樽最具代表性的景色。傍晚點燈後尤為浪漫，石板路沿途設有藝術品與咖啡廳。建議傍晚17:00前後在此拍照，再搭車返札。':'Der Kanal mit Backsteinlagern von 1923 ist Otarus bekanntestes Motiv. Abends mit Beleuchtung besonders stimmungsvoll; entlang des Steinwegs gibt es Kunst und Cafés. Gegen 17:00 fotografieren, danach zurück nach Sapporo.',
+  'JR 小樽駅 → JR 札幌駅（35分）→ 地下鐵 → 飯店｜建議17:00–18:00搭車':'JR Otaru Station -> JR Sapporo Station (35 Min.) -> U-Bahn -> Hotel | Rückfahrt 17:00-18:00 empfohlen',
+  '飯店 → 地下鐵南北線「中島公園駅」→「真駒内駅」（終點，約12分）→ 中央バス2番乗り場 →「芸術の森入口」（約15分）下車':'Hotel -> U-Bahn Namboku-Linie Nakajima-koen -> Makomanai (Endstation, ca. 12 Min.) -> Chuo Bus Haltestelle 2 -> Ausstieg Geijutsu-no-Mori Iriguchi (ca. 15 Min.)',
+  '札幌藝術之森（札幌芸術の森）':'Sapporo Art Park',
+  '坐落於札幌南區丘陵地帶的大型綜合藝術文化設施，最大亮點是廣達40公頃的「野外美術館」，74件國內外雕塑作品散落在自然林間草地中，漫步其中猶如走進戶外藝術展。夏季（6–8月）開放至17:30，建議參觀約2小時。入場費：野外美術館大人700日圓、高中生280日圓。中央巴士約15分間隔發車，注意回程班次時刻。':'Große Kunst- und Kulturanlage in den Hügeln im Süden Sapporos. Highlight ist das 40 ha große Freilichtmuseum mit 74 Skulpturen im Wald und auf Wiesen. Im Sommer bis 17:30 geöffnet; ca. 2 Std. einplanen. Eintritt Freilichtmuseum: Erwachsene 700 Yen, Oberschüler 280 Yen. Rückbuszeiten beachten.',
+  '芸術の森センター → 中央バス（約15分）→「真駒内駅」→ 地下鐵南北線（約10分）→「すすきの駅」':'Geijutsu-no-Mori Center -> Chuo Bus (ca. 15 Min.) -> Makomanai Station -> U-Bahn Namboku-Linie (ca. 10 Min.) -> Susukino Station',
+  'すみれ 札幌すすきの店 味噌拉麵':'Sumire Sapporo Susukino Miso-Ramen',
+  '札幌是日本味噌拉麵的發源地！すみれ是業界公認的頂級名店，濃厚味噌湯底、炒香蔬菜，無可取代。8月お盆期間極擁擠，建議開門前（11:00前）排隊或早到等候。位於薄野附近，藝術之森返回後直接前往。':'Sapporo gilt als Heimat des Miso-Ramen. Sumire ist ein sehr bekannter Klassiker mit kräftiger Miso-Brühe und angebratenem Gemüse. Während Obon sehr voll; am besten vor Öffnung oder früh kommen. Praktisch nach der Rückfahrt vom Art Park nach Susukino.',
+  '六花亭 札幌本店':'Rokkatei Sapporo Hauptgeschäft',
+  '北海道代表性菓子品牌，札幌本店有可內用的咖啡廳，招牌マルセイバターサンド是必買伴手禮。若在藻岩山夜景前來下午茶，或買盒伴手禮帶回飯店。':'Repräsentative Hokkaido-Süßwarenmarke. Im Sapporo-Hauptgeschäft gibt es ein Café; die Marusei Butter Sandwiches sind ein Muss als Mitbringsel. Gut als Nachmittagsstopp vor dem Mt. Moiwa.',
+  '六花亭札幌本店 → 步行約8分至「西4丁目」停留所 → 市電外回り（約20–25分）→「ロープウェイ入口」停留所 → 免費シャトルバス（約5分）or 步行約8分 → 藻岩山麓駅':'Rokkatei Sapporo -> ca. 8 Min. zu Fuß zur Haltestelle Nishi 4-chome -> Straßenbahn äußere Runde (ca. 20-25 Min.) -> Ropeway Iriguchi -> kostenloser Shuttlebus (ca. 5 Min.) oder ca. 8 Min. zu Fuß -> Moiwa Sanroku Station',
+  '藻岩山 夜景':'Nachtblick vom Mt. Moiwa',
+  '搭乘纜車＋迷你纜車雙層抵達標高531公尺山頂，日本新三大夜景之一。建議傍晚前往，日落後夜景震撼無比。纜車+ミニケーブルカー往復大人2,100日圓、小學生以下1,050日圓。市電「ロープウェイ入口」停留所旁有免費接駁巴士每15分一班，或步行約8分至山麓駅。':'Mit Seilbahn und Mini Cable Car auf den 531 m hohen Gipfel, eine der neuen drei großen Nachtansichten Japans. Am besten am Abend hinauf; nach Sonnenuntergang ist die Aussicht stark. Hin- und Rückfahrt ca. 2.100 Yen für Erwachsene, 1.050 Yen für Grundschulkinder und jünger.',
+});
+
+Object.assign(de, {
+  '飯店 → 地下鐵南北線「中島公園駅」→「さっぽろ駅」→ JR札幌駅 → JR千歲線（約8分）→「新札幌駅」→ JR北海道バス「新22」（約15分）→「開拓の村」':'Hotel -> U-Bahn Namboku-Linie Nakajima-koen -> Sapporo -> JR Sapporo Station -> JR Chitose-Linie (ca. 8 Min.) -> Shin-Sapporo -> JR Hokkaido Bus Shin 22 (ca. 15 Min.) -> Historical Village',
+  '北海道開拓の村':'Historical Village of Hokkaido',
+  '在廣大的原野中重建了明治～昭和初期北海道各地建築物的大型戶外博物館，佔地54公頃，超過52棟歷史建築物從各地移址保存於此，包括農家、漁村、商家、官廳等，完整重現了北海道開拓時代的生活樣貌。夏季（9–17時）有馬車可以搭乘，走進建築物內還有志工穿著傳統服裝解說。門票：大人800日圓，高中生600日圓。JR北海道バス新22，約1小時2班。':'Großes Freilichtmuseum mit rekonstruierten Gebäuden aus Hokkaido von der Meiji- bis frühen Showa-Zeit. Auf 54 ha stehen über 52 historische Gebäude wie Bauernhäuser, Fischerdörfer, Läden und Behörden. Im Sommer gibt es Kutschen und freiwillige Guides in traditioneller Kleidung. Eintritt: Erwachsene 800 Yen, Oberschüler 600 Yen.',
+  '開拓の村 → JR北海道バス「新22」（約15分）→ 新札幌駅 → JR千歲線（約10–15分）→ JR北広島駅 → 步行約20分或接駁巴士 → ES CON FIELD':'Historical Village -> JR Hokkaido Bus Shin 22 (ca. 15 Min.) -> Shin-Sapporo -> JR Chitose-Linie (ca. 10-15 Min.) -> JR Kitahiroshima -> ca. 20 Min. zu Fuß oder Shuttlebus -> ES CON FIELD',
+  '北海道日本火腿鬥士隊 ES CON FIELD':'Hokkaido Nippon-Ham Fighters ES CON FIELD',
+  '北海道日本火腿鬥士隊的新主場，屋頂可開合，設計前衛，場內有各式北海道美食攤位，即便不看球賽也值得逛逛。':'Neues Heimstadion der Hokkaido Nippon-Ham Fighters mit beweglichem Dach und moderner Architektur. Viele Hokkaido-Foodstände; auch ohne Spiel sehenswert.',
+  '北海道日本火腿鬥士隊主場比賽':'Heimspiel der Hokkaido Nippon-Ham Fighters',
+  '8月13日（四）18:00開打，16:00開放入場。北海道日本火腿鬥士隊（Hokkaido Nippon-Ham Fighters）對埼玉西武獅（Saitama Seibu Lions），地點為 ES CON FIELD HOKKAIDO。右外野座位每人 9,000 JPY，若只想進場感受球場氣氛也可選純入場每人 4,000 JPY。建議提早到場吃晚餐、逛球場周邊與拍照。':'Am 13. August (Do) beginnt das Spiel um 18:00, Einlass ist ab 16:00. Hokkaido Nippon-Ham Fighters gegen Saitama Seibu Lions im ES CON FIELD HOKKAIDO. Sitzplätze im rechten Außenfeld kosten 9.000 JPY pro Person; reiner Eintritt kostet 4.000 JPY pro Person. Früh ankommen lohnt sich für Abendessen, Stadionrunde und Fotos.',
+  'ES CON FIELD → 步行或接駁巴士 → JR北広島駅 → JR千歳線（約15分）→ JR札幌駅 → 地下鐵南北線（さっぽろ→中島公園，約5分）→ 飯店':'ES CON FIELD -> zu Fuß oder Shuttlebus -> JR Kitahiroshima -> JR Chitose-Linie (ca. 15 Min.) -> JR Sapporo -> U-Bahn Namboku-Linie (Sapporo -> Nakajima-koen, ca. 5 Min.) -> Hotel',
+  '薄野 海鮮居酒屋':'Seafood-Izakaya in Susukino','磯魚 北のグルメ亭':'Isozakana Kita no Gourmet-tei','魚一心':'Uoisshin',
+  '薄野一帶有眾多平價海鮮居酒屋，推薦「磯魚 北のグルメ亭」或「魚一心」，新鮮螃蟹、海膽、干貝，價格實惠。青少年可點特製餐點。飯店步行約10分。':'Rund um Susukino gibt es viele preiswerte Seafood-Izakaya. Empfehlenswert sind Isozakana Kita no Gourmet-tei oder Uoisshin mit frischer Krabbe, Seeigel und Jakobsmuscheln. Jugendliche finden ebenfalls passende Gerichte. Vom Hotel ca. 10 Min. zu Fuß.',
+  '飯店 → 地下鐵南北線「中島公園駅」→「大通駅」→ 東豊線換乘 →「環状通東駅」（約8分）→ 中央バス東69/東79（約25分）→「モエレ沼公園東口」下車｜建議09:00出發':'Hotel -> U-Bahn Namboku-Linie Nakajima-koen -> Odori -> Umstieg Toho-Linie -> Kanjodori-higashi (ca. 8 Min.) -> Chuo Bus Higashi 69/79 (ca. 25 Min.) -> Moerenuma Koen Higashiguchi | Abfahrt ca. 09:00 empfohlen',
+  '莫埃來沼公園（モエレ沼公園）':'Moerenuma Park',
+  '由日裔美籍世界級雕塑家伊薩姆·野口（Isamu Noguchi）以「將整座公園打造成一件雕塑作品」為理念所設計，1982年動工，2005年全面開放。佔地約188.8公頃，入場完全免費。園內最具代表性的是玻璃金字塔「HIDAMARI」、直徑48公尺的海之噴水（定時噴發），以及可登頂俯瞰全園的「モエレ山（海拔62公尺人工山）」。租借園內自行車（200日圓/2小時）是最有效率的遊覽方式。注意：巴士班次約1小時2班，回程請提前確認時刻。':'Der Park wurde vom japanisch-amerikanischen Bildhauer Isamu Noguchi als „eine einzige Skulptur“ konzipiert. Er wurde 1982 begonnen und 2005 vollständig eröffnet. Auf rund 188,8 ha liegen Glas-Pyramide HIDAMARI, der 48 m breite Sea Fountain und der künstliche Moere-yama mit Blick über den Park. Fahrradverleih ist die effizienteste Art der Erkundung. Buszeiten für die Rückfahrt vorher prüfen.',
+  'モエレ沼公園東口 → 中央バス東69/東79（約25分）→「環状通東駅」→ 地下鐵東豊線（約8分）→「大通駅」→ 步行約5分 → GARAKU湯咖哩本店':'Moerenuma Koen Higashiguchi -> Chuo Bus Higashi 69/79 (ca. 25 Min.) -> Kanjodori-higashi -> U-Bahn Toho-Linie (ca. 8 Min.) -> Odori -> ca. 5 Min. zu Fuß -> GARAKU Soup Curry Hauptladen',
+  'GARAKU 湯咖哩本店':'GARAKU Soup Curry Hauptladen',
+  '札幌湯咖哩人氣名店，本店位於南2条西2丁目一帶，從大通站或薄野站步行都很方便。招牌是香料層次濃、蔬菜份量足的湯咖哩，可依喜好選辣度與飯量。8月お盆期間容易排隊，從莫埃來沼公園回市區後建議直接前往。':'Beliebter Soup-Curry-Laden in Sapporo. Der Hauptladen liegt bei Minami 2-jo Nishi 2-chome und ist von Odori oder Susukino gut zu Fuß erreichbar. Bekannt für aromatische Gewürze und viel Gemüse; Schärfe und Reisportion sind wählbar. Während Obon Wartezeit einplanen.',
+  '札幌市時計台':'Sapporo Clock Tower',
+  '1878年建造的農學校演武場，北海道開拓時代的象徵。雖被戲稱「日本三大失望景點之一」，但歷史意義深遠，周邊高樓包圍反而形成奇特趣味對比，值得順路一看。':'1878 als Übungshalle der Landwirtschaftsschule erbaut und ein Symbol der Hokkaido-Pionierzeit. Zwar oft als „enttäuschende Sehenswürdigkeit“ bezeichnet, historisch aber wichtig und durch die Hochhäuser ringsum interessant.',
+  '北海道廳舊本廳舍（赤煉瓦）':'Ehemaliges Hokkaido-Regierungsgebäude (Roter Backstein)',
+  '建於1888年的紅磚廳舍，國家重要文化財。內部可免費參觀北海道歷史展，庭院也開放入場，是札幌最上鏡的歷史建築。':'1888 erbautes rotes Backsteingebäude und wichtiges Kulturgut. Innen gibt es kostenlose Ausstellungen zur Geschichte Hokkaidos, auch der Garten ist zugänglich. Eines der fotogensten historischen Gebäude Sapporos.',
+  '赤煉瓦前 → 步行3分 →「大通駅」→ 地下鐵東西線（約10分）→「円山公園駅」→ 步行約15分 → 北海道神宮':'Vor dem roten Backsteingebäude -> 3 Min. zu Fuß -> Odori Station -> U-Bahn Tozai-Linie (ca. 10 Min.) -> Maruyama-koen -> ca. 15 Min. zu Fuß -> Hokkaido Shrine',
+  '北海道神宮':'Hokkaido-Schrein',
+  '札幌最重要的神社，位於圓山公園旁，綠蔭茂密。可祈福求籤，感受北海道神道氛圍。神宮內有境內攤位，可順路嚐嚐現烤「判官樣」紅豆年糕（限定甜點，附免費奉茶）。':'Der wichtigste Schrein in Sapporo, direkt neben dem grünen Maruyama Park. Gut zum Beten, Omikuji-Ziehen und für die Shinto-Atmosphäre Hokkaidos. Im Schrein kann man auch frisch gebackene Hangansama-Reiskuchen probieren.',
+  '北海道神宮 → 步行約15分 →「円山公園駅」→ 地下鐵東西線（約6分）→「大通駅」':'Hokkaido-Schrein -> ca. 15 Min. zu Fuß -> Maruyama-koen Station -> U-Bahn Tozai-Linie (ca. 6 Min.) -> Odori Station',
+  '北海盆踊り (Hokkaido Bon Odori Festival)':'Hokkai Bon Odori Festival',
+  '從大通公園 2 丁目進入，現場會搭起巨大的木製高台（櫓），太鼓手在上方擊鼓，市民與遊客身穿浴衣圍成數圈隨著《北海盆唄》起舞。強烈建議全家一起走入隊伍中跟著跳，這是日本夏天最震撼、最有人情味的文化體驗。':'Am Odori Park 2-chome steht ein großer Holzturm, auf dem Taiko-Trommler spielen. Einheimische und Besucher tanzen in Yukata in Kreisen zum Hokkai Bon Uta. Unbedingt mitmachen; es ist eine der lebendigsten Sommererfahrungen in Japan.',
+  '大通公園 → 步行或地下鐵南北線（1站）→「中島公園駅」→ 步行5分 → 飯店':'Odori Park -> zu Fuß oder U-Bahn Namboku-Linie (1 Station) -> Nakajima-koen -> 5 Min. zu Fuß -> Hotel',
+  'JR 札幌駅 → JR特急「カムイ/ライラック」（約90分）→ JR 旭川駅｜建議08:00出發':'JR Sapporo Station -> Limited Express Kamui/Lilac (ca. 90 Min.) -> JR Asahikawa Station | Abfahrt ca. 08:00 empfohlen',
+  'JR 旭川駅 → JR富良野線（約45分）→ 美馬牛駅｜約09:30換乘':'JR Asahikawa Station -> JR Furano-Linie (ca. 45 Min.) -> Bibaushi Station | Umstieg ca. 09:30',
+  '美馬牛駅 → 步行約20–25分（或站前計程車約5分/700–800日圓）→ 四季彩之丘':'Bibaushi Station -> ca. 20-25 Min. zu Fuß oder Taxi ca. 5 Min./700-800 Yen -> Shikisai-no-Oka',
+  '四季彩之丘（展望花畑 四季彩の丘）':'Shikisai-no-Oka Panoramic Flower Gardens',
+  '位於美瑛丘陵上、佔地7公頃（東京巨蛋約3個）的北海道代表性花園。每年4月下旬至10月下旬，約30種草花依序盛開，從高處望去，紅、黃、紫、粉的花田像一條條彩虹地毯鋪滿山丘，遠方是十勝岳連峰的雄偉輪廓，景色令人屏息。8月正值向日葵、薰衣草、百日草等同時盛開的黃金期。出站後步行約20–25分鐘抵達，沿途已能感受美瑛丘陵的開闊氣息。園內可搭乘拖拉機觀光車「四季彩ノロッコ號」悠閒巡遊，也有4人乘高爾夫球車可自由行駛。另設有可愛的羊駝牧場（通年開放），餵食體驗深受青少年喜愛。午餐可在園內餐廳品嚐北海道湯咖哩與現炸馬鈴薯可樂餅。夏季（7–9月）入場費：高中生以上800日圓，中小學生500日圓，乘車另計。營業時間：6–9月 8:40–17:30。':'Repräsentativer Blumengarten auf den Hügeln von Biei, rund 7 ha groß. Von Ende April bis Ende Oktober blühen etwa 30 Blumenarten; im August sind Sonnenblumen, Lavendel und Zinnien noch besonders schön. Vom Bahnhof 20-25 Min. zu Fuß. Im Park gibt es Traktorfahrten, Golf-Carts und eine Alpaka-Farm. Im Sommer Eintritt: Erwachsene/Oberschüler 800 Yen, Kinder 500 Yen; Öffnung Juni-Sept. 8:40-17:30.',
+  '四季彩之丘 園內餐廳・美食':'Shikisai-no-Oka Restaurant und Snacks',
+  '園內設有餐廳與小吃攤，推薦使用美瑛產新鮮馬鈴薯製成的現炸可樂餅（約200日圓），以及北海道風味的湯咖哩。邊眺望花田邊用餐，是難忘的旅行體驗。農産品直賣所也有玉米、哈密瓜等當季食材可購買。':'Im Park gibt es Restaurant und Snackstände. Empfehlenswert sind frisch frittierte Kroketten aus Biei-Kartoffeln und Hokkaido-Soup-Curry. Essen mit Blick auf die Blumenfelder bleibt in Erinnerung; im Hofladen gibt es Mais, Melonen und andere Saisonprodukte.',
+  '美馬牛駅 → JR富良野線（約45分）→ JR 旭川駅｜約15:00–15:30搭車':'Bibaushi Station -> JR Furano-Linie (ca. 45 Min.) -> JR Asahikawa Station | Zug ca. 15:00-15:30',
+  '旭川市中心・買物公園':'Asahikawa Zentrum und Kaimono Koen',
+  '從旭川駅步行即可進入日本第一條步行者天國商店街「買物公園」，兩側有咖啡廳、伴手禮店，適合飯前輕鬆逛街，感受旭川的在地氛圍，預留約1小時悠閒散步。':'Direkt ab Asahikawa Station beginnt Kaimono Koen, Japans erste Fußgängerzone. Mit Cafés und Souvenirgeschäften auf beiden Seiten gut für einen entspannten Spaziergang vor dem Abendessen. Etwa 1 Std. einplanen.',
+  '旭川醬油拉麵 青葉本店 / 旭川ラーメン村':'Asahikawa Shoyu-Ramen: Aoba Hauptladen / Asahikawa Ramen Village',
+  '旭川與札幌（味噌）、函館（鹽味）並稱北海道三大拉麵，以「醬油豚骨海鮮雙湯底」為特色。豚骨與海鮮熬製的湯底鮮醇濃厚，細捲麵吸附湯汁極佳。推薦老字號「青葉本店」，或前往「旭川ラーメン村」一次比較8家名店，約19:00–20:00用餐最不需排隊。':'Asahikawa gehört mit Sapporo und Hakodate zu Hokkaidos drei großen Ramen-Stilen. Typisch ist eine Shoyu-Brühe aus Schwein und Seafood, dazu dünne wellige Nudeln. Empfehlenswert sind Aoba oder das Ramen Village; gegen 19:00-20:00 ist es oft entspannter.',
+  'JR 旭川駅 → JR特急（約90分）→ JR 札幌駅 → 飯店｜約20:00–20:30搭車，約22:00返飯店':'JR Asahikawa Station -> Limited Express (ca. 90 Min.) -> JR Sapporo Station -> Hotel | Zug ca. 20:00-20:30, Rückkehr ca. 22:00',
+});
+
+Object.assign(de, {
+  '日本北海道8日遊':'Japan Hokkaido 8 Tage',
+  '8/12（三）':'12.08. (Mi)','8/13（四）':'13.08. (Do)','8/14（五）':'14.08. (Fr)','8/15（六）':'15.08. (Sa)','8/16（日）':'16.08. (So)','8/17（一）':'17.08. (Mo)','8/18（二）':'18.08. (Di)','8/19（三）':'19.08. (Mi)',
+  'DAY 01 · 8月12日（三）':'TAG 01 · 12. August (Mi)','DAY 02 · 8月13日（四）':'TAG 02 · 13. August (Do)','DAY 03 · 8月14日（五）':'TAG 03 · 14. August (Fr)','DAY 04 · 8月15日（六）':'TAG 04 · 15. August (Sa)','DAY 05 · 8月16日（日）':'TAG 05 · 16. August (So)','DAY 06 · 8月17日（一）':'TAG 06 · 17. August (Mo)','DAY 07 · 8月18日（二）':'TAG 07 · 18. August (Di)','DAY 08 · 8月19日（三）':'TAG 08 · 19. August (Mi)',
+  '🛬 新千歲機場 13:35 → 札幌':'🛬 New Chitose Airport 13:35 -> Sapporo','🌊 小樽一日遊':'🌊 Tagesausflug nach Otaru','🏔️ 札幌拉麵':'🏔️ Sapporo-Ramen','⚾ 北海道火腿鬥士隊':'⚾ Hokkaido Fighters','🏛️ 日本盂蘭盆節':'🏛️ Japanisches Obon-Fest','🌸 美瑛・富良野一日遊':'🌸 Tagesausflug nach Biei und Furano','🌋 登別一日遊':'🌋 Tagesausflug nach Noboribetsu','✈ 新千歲 CI131 15:05':'✈ New Chitose CI131 15:05',
+  'JR 札幌駅 → JR特急「すずらん/北斗」（70分）→ JR 登別駅 → 道南巴士（13分）→ 登別温泉':'JR Sapporo Station -> Limited Express Suzuran/Hokuto (70 Min.) -> JR Noboribetsu Station -> Donan Bus (13 Min.) -> Noboribetsu Onsen',
+  '景點・活動':'Sehenswürdigkeit und Aktivität',
+  '鬼の銅像 & 閻魔堂審判表演':'Dämonenstatuen und Enmado-Vorführung',
+  '登別溫泉街的地標，閻羅王銅像與地獄主題裝飾遍佈街道。閻魔堂每日特定時段有機關表演，閻王大張其嘴、眼睛發光，老少咸宜。':'Wahrzeichen des Noboribetsu-Onsen-Orts. Dämonen- und Höllendekor findet man überall; im Enmado gibt es zu bestimmten Zeiten eine mechanische Vorführung mit leuchtenden Augen und großem Mund, auch für Kinder interessant.',
+  '地獄谷（じごくだに）':'Jigokudani',
+  '登別最具代表性的奇觀，直徑約450公尺的爆裂火口遺跡，地面裂縫不斷噴出硫磺煙霧與沸騰泉水，如同地獄場景。步道環繞，免費入場，視覺衝擊感十足！':'Noboribetsus bekannteste Naturkulisse: ein etwa 450 m breiter Explosionskrater mit Schwefeldampf und heißen Quellen, fast wie eine Höllenlandschaft. Rundwege führen durch das Gebiet; Eintritt frei und sehr eindrucksvoll.',
+  '大湯沼（おおゆぬま）':'Oyunuma',
+  '直徑約130公尺的硫磺泉沼，水溫高達約50°C，沼面不停冒泡，從展望台俯瞰壯觀異常。步行棧道可近距離感受地熱，硫磺煙霧飄渺，宛如異世界。':'Ein etwa 130 m breiter Schwefel-Quellsee mit rund 50 °C warmem Wasser. Die Oberfläche blubbert, vom Aussichtspunkt wirkt die Landschaft spektakulär. Auf den Wegen spürt man die Geothermie aus nächster Nähe.',
+  '無料足湯':'Kostenloses Fußbad','免費':'kostenlos',
+  '溫泉街上有多處免費足湯，沿路悠閒泡腳，感受溫泉鄉氣氛。邊泡足湯邊欣賞溫泉街景色，是孩子和大人都喜歡的放鬆時刻。':'Im Onsen-Ort gibt es mehrere kostenlose Fußbäder. Ein entspannter Stopp, um die Atmosphäre des Badeorts zu genießen; sowohl Kinder als auch Erwachsene mögen diese Pause.',
+  '溫泉饅頭（温泉まんじゅう）':'Onsen-Manju',
+  '登別溫泉必吃甜點，用溫泉水蒸製的黑色外皮饅頭，餡料香甜。溫泉街上多家販售，現蒸現吃，邊泡足湯邊吃最對味！':'Klassische Süßigkeit in Noboribetsu Onsen: gedämpfte Manju mit dunkler Hülle und süßer Füllung. Mehrere Läden verkaufen sie frisch; ideal zusammen mit einem Fußbad.',
+  '登別螃蟹料理':'Krabbengerichte in Noboribetsu',
+  '北海道知名螃蟹（松葉蟹、毛蟹）在登別溫泉街附近的海鮮餐廳可享用。若預算允許，點螃蟹定食作為旅程最後一頓豐盛晚餐。':'Hokkaidos bekannte Krabben wie Schneekrabbe und Hokkaido-Krabbe gibt es in Seafood-Restaurants rund um den Onsen-Ort. Wenn das Budget passt, ist ein Krabben-Set ein schönes letztes großes Abendessen.',
+  '地獄の谷の鬼花火 煙火秀':'Jigoku no Tani Oni Hanabi Feuerwerk',
+  '每晚在登別温泉街舉行小型「鬼的煙火祭」表演，免費觀賞，8月份每晚皆有，約20:00、21:00各一場。晚餐後在街上等待即可欣賞，是完美的旅程句點！':'Kleine Dämonen-Feuerwerksshow im Noboribetsu-Onsen-Ort, kostenlos zu sehen. Im August meist abends um ca. 20:00 und 21:00. Nach dem Abendessen einfach im Ort bleiben; ein schöner Abschluss des Tages.',
+  '温泉バスターミナル → JR 登別駅 → JR特急（70分）→ 札幌｜看完煙火約21:30搭巴士':'Onsen Bus Terminal -> JR Noboribetsu Station -> Limited Express (70 Min.) -> Sapporo | Nach dem Feuerwerk ca. 21:30 den Bus nehmen',
+  "Hotel ONE'S RESIDENCE 退房":"Check-out im Hotel ONE'S RESIDENCE",
+  'CI131出發時間15:05，建議12:30前抵達新千歲機場。退房後行李可在大廳寄放，或直接帶往JR札幌駅寄存後再購物。最晚11:30–11:45搭上JR。':'CI131 startet um 15:05; Ankunft am Flughafen New Chitose vor 12:30 empfohlen. Nach dem Check-out Gepäck im Hotel lassen oder direkt zur JR Sapporo Station bringen und dort lagern. Spätestens 11:30-11:45 in den JR-Zug steigen.',
+  'JR タワーステラプレイス & 札幌駅地下街':'JR Tower Stellar Place und Sapporo Station Underground',
+  'JR札幌站地下連結多個大型商場，做最後的伴手禮採購。B1-B2食品區有白色戀人、六花亭、Royce巧克力等知名品牌，一次搞定所有土産。':'Unter der JR Sapporo Station sind mehrere große Einkaufsbereiche verbunden, ideal für letzte Souvenirs. In B1-B2 gibt es Shiroi Koibito, Rokkatei, Royce und weitere bekannte Marken.',
+  'JR 札幌駅 → JR快速Airport（45分）→ 新千歲機場｜最晚11:45出發':'JR Sapporo Station -> JR Rapid Airport (45 Min.) -> New Chitose Airport | spätestens 11:45 abfahren',
+  '新千歲空港 拉麵道場':'New Chitose Airport Ramen Dojo',
+  '機場3F集結北海道各地10家知名拉麵，味噌、醬油、鹽味、海鮮全都有，是離開北海道前最後一碗麵的最佳選擇。各家排隊人潮多，建議抵達機場後立刻前往。':'Im 3. Stock des Flughafens sind 10 bekannte Ramenläden aus Hokkaido versammelt: Miso, Shoyu, Salz und Seafood. Perfekt für die letzte Schüssel Ramen vor dem Abflug; wegen Warteschlangen direkt nach Ankunft hingehen.',
+  '購物・必買':'Shopping, Pflichtkauf',
+  '新千歲機場免稅區 & 白色戀人旗艦店':'Duty-free-Bereich New Chitose und Shiroi Koibito Flagship Store',
+  '機場內購物區極豐富，有白色戀人工廠旗艦店（可現場品嚐）、北海道牛奶霜淇淋、各式土産。建議預留1.5–2小時在機場盡情採購最後的伴手禮。':'Der Flughafen hat ein sehr großes Einkaufsangebot: Shiroi Koibito Flagship Store, Hokkaido-Milch-Softeis und viele Souvenirs. Für letzte Einkäufe 1,5-2 Std. einplanen.',
+  '華航 CI131 新千歲 15:05 → 台灣':'China Airlines CI131 New Chitose 15:05 -> Taiwan',
+  '建議13:30前完成報到手續與通關，前往登機門。帶著滿滿的北海道回憶與行李箱的土産，期待再訪！':'Check-in und Sicherheitskontrolle möglichst bis 13:30 abschließen und zum Gate gehen. Mit vielen Hokkaido-Erinnerungen und einem Koffer voller Souvenirs geht es zurück.',
+});
+
+function tr(text) {
+  if (currentLang === 'zh') return text;
+  return de[text] || text;
+}
+
+function localizeStaticText() {
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      if (!parent || parent.closest('script,style,svg,.timeline')) return NodeFilter.FILTER_REJECT;
+      return node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }
+  });
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (!node._sourceText) node._sourceText = node.nodeValue.trim();
+    const replacement = tr(node._sourceText);
+    node.nodeValue = node.nodeValue.replace(node.nodeValue.trim(), replacement);
+  });
+}
+
+function renderTimelines() {
+  Object.keys(days).forEach(id => buildTimeline(id, days[id]));
+}
+
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('trip-lang', lang);
+  document.documentElement.lang = lang === 'de' ? 'de' : 'zh-TW';
+  document.title = lang === 'de' ? 'Hokkaido-Reise Japan 8 Tage' : '日本北海道8日遊';
+  document.querySelectorAll('[data-lang-button]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.langButton === lang);
+  });
+  localizeStaticText();
+  renderTimelines();
+}
+
+// 城市名對應首個tab（同城市取最早那天）
+const cityTabMap = {
+  '札幌': 'day1',
+  '小樽': 'day3',
+  '富良野': 'day6',
+  '登別': 'day7',
+};
+
+function jumpToCity(city) {
+  const viewId = cityTabMap[city];
+  if (!viewId) return;
+  // 找到對應的 tab button
+  const tabs = document.querySelectorAll('.tab');
+  let targetBtn = null;
+  tabs.forEach(t => {
+    if (t.getAttribute('onclick') === "showView('" + viewId + "',this)") {
+      targetBtn = t;
+    }
+  });
+  if (targetBtn) showView(viewId, targetBtn);
+}
+
+function setActiveCity(city) {
+  const cityButtons = document.querySelectorAll('.banner-pills .pill');
+  cityButtons.forEach(pill => {
+    pill.classList.toggle('red', pill.dataset.city === city);
+  });
+}
+
+function showView(id, btn) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  const city = btn.dataset.city;
+  if (city && cityTabMap[city]) setActiveCity(city);
+  // Scroll so the banner scrolls away and the sticky tab bar sits at top
+  const bannerH = document.querySelector('.banner').offsetHeight;
+  window.scrollTo({top: bannerH, behavior:'smooth'});
+}
+
+function buildTimeline(containerId, stops) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  let stopNum = 0;
+  el.innerHTML = stops.map((s, i) => {
+    if (s.type === 'transport') {
+      const label = tr(s.label);
+      const name = tr(s.name);
+      return `<div class="stop transport">
+        <div class="stop-dot"></div>
+        <div class="stop-card transport-card">
+          <div class="stop-head">
+            <div class="stop-icon">${s.icon}</div>
+            <div class="stop-info">
+              <div class="stop-label" style="color:rgba(255,255,255,0.55)">${label}</div>
+              <div class="stop-name">${name}</div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    }
+    stopNum++;
+    const id = `stop-${containerId}-${i}`;
+    const label = tr(s.label);
+    const name = tr(s.name);
+    const desc = tr(s.desc);
+    const tags = (s.tags||[]).map(t=>`<span class="tag ${t.type}">${tr(t.text)}</span>`).join('');
+    return `<div class="stop">
+      <div class="stop-dot" onclick="toggleStop('${id}')">${stopNum}</div>
+      <div class="stop-card" id="${id}" onclick="toggleStop('${id}')">
+        <div class="stop-head">
+          <div class="stop-icon">${s.icon}</div>
+          <div class="stop-info">
+            <div class="stop-label">${label}</div>
+            <div class="stop-name">${name}</div>
+          </div>
+          <div class="stop-arrow">▼</div>
+        </div>
+        <div class="stop-body" id="body-${id}">
+          <div class="stop-body-inner">
+            <div class="tag-row">${tags}</div>
+            <p>${desc}</p>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleStop(id) {
+  const card = document.getElementById(id);
+  const body = document.getElementById('body-' + id);
+  const open = card.classList.toggle('open');
+  body.classList.toggle('open', open);
+}
+
+const days = {
+  'tl-day1': [
+    {type:'transport', icon:'✈', label:'交通', name:'新千歲機場 → JR快速Airport（約45分）→ JR札幌駅'},
+    {icon:'🛏️', label:'住宿 CHECK-IN', name:"Hotel ONE'S RESIDENCE", tags:[{type:'hotel',text:'公寓式飯店'},{type:'transport',text:'中島公園駅步行5分'}], desc:'搭地下鐵南北線至中島公園駅，步行約5分抵達飯店。放下行李稍作休息，再輕裝出發。飯店有小廚房、洗衣機，生活機能完整。'},
+    {icon:'🥩', label:'晚餐・必吃', name:'成吉思汗烤羊肉 だるま本店', tags:[{type:'food',text:'北海道名物'},{type:'food',text:'薄野'}], desc:'北海道最具代表性的烤肉！用特殊凸型鐵板烤羔羊肉，沾醬甘甜不羶。だるま本店是薄野最老牌名店，常年大排長龍，建議傍晚提早前往排隊。飯店步行約10分。'},
+    {icon:'🍺', label:'特殊活動', name:'大通公園啤酒花園', tags:[{type:'event',text:'8月限定'},{type:'event',text:'免費入場'}], desc:'約7月下旬～8月下旬舉辦，四大啤酒品牌（Sapporo、Asahi、Kirin、Suntory）各自設立露天攤位。青少年可喝飲料、吃北海道美食，夜晚燈光璀璨，人聲鼎沸。'},
+    {icon:'🗼', label:'景點', name:'大通公園 & 札幌電視塔', tags:[{type:'sight',text:'地標'},{type:'sight',text:'夜景'}], desc:'大通公園是市中心東西向的綠帶公園，長約1.5公里。公園東端的電視塔（高147.2公尺）展望台可俯瞰公園全景，夜景尤美。啤酒花園後順路散步。'},
+    {icon:'🏪', label:'景點・購物', name:'狸小路商店街', tags:[{type:'sight',text:'購物'},{type:'sight',text:'有屋頂・雨天OK'}], desc:'北海道最古老的商店街，全長約800公尺，有屋頂遮蔽，雨天也可逛。土産、藥妝、餐廳一應俱全，是回飯店路上的最佳順路購物地點。'},
+  ],
+  'tl-day2': [
+    {type:'transport', icon:'🚃', label:'交通', name:'飯店 → 地下鐵南北線「中島公園駅」→「さっぽろ駅」→ JR札幌駅 → JR千歲線（約8分）→「新札幌駅」→ JR北海道バス「新22」（約15分）→「開拓の村」'},
+    {icon:'🏘️', label:'景點', name:'北海道開拓の村', tags:[{type:'sight',text:'戶外博物館'},{type:'sight',text:'約2–3小時'},{type:'sight',text:'夏季馬車'}], desc:'在廣大的原野中重建了明治～昭和初期北海道各地建築物的大型戶外博物館，佔地54公頃，超過52棟歷史建築物從各地移址保存於此，包括農家、漁村、商家、官廳等，完整重現了北海道開拓時代的生活樣貌。夏季（9–17時）有馬車可以搭乘，走進建築物內還有志工穿著傳統服裝解說。門票：大人800日圓，高中生600日圓。JR北海道バス新22，約1小時2班。'},
+    {type:'transport', icon:'🚌', label:'交通', name:'開拓の村 → JR北海道バス「新22」（約15分）→ 新札幌駅 → JR千歲線（約10–15分）→ JR北広島駅 → 步行約20分或接駁巴士 → ES CON FIELD'},
+    {icon:'⚾', label:'景點', name:'北海道日本火腿鬥士隊 ES CON FIELD', tags:[{type:'sight',text:'2023年新球場'},{type:'sight',text:'可開合屋頂'}], desc:'北海道日本火腿鬥士隊的新主場，屋頂可開合，設計前衛，場內有各式北海道美食攤位，即便不看球賽也值得逛逛。'},
+    {icon:'🎉', label:'特殊活動', name:'北海道日本火腿鬥士隊主場比賽', tags:[{type:'event',text:'8/13週四主場'},{type:'event',text:'16:00入場'},{type:'event',text:'18:00開打'}], desc:'8月13日（四）18:00開打，16:00開放入場。北海道日本火腿鬥士隊（Hokkaido Nippon-Ham Fighters）對埼玉西武獅（Saitama Seibu Lions），地點為 ES CON FIELD HOKKAIDO。右外野座位每人 9,000 JPY，若只想進場感受球場氣氛也可選純入場每人 4,000 JPY。建議提早到場吃晚餐、逛球場周邊與拍照。'},
+    {type:'transport', icon:'🚃', label:'交通', name:'ES CON FIELD → 步行或接駁巴士 → JR北広島駅 → JR千歳線（約15分）→ JR札幌駅 → 地下鐵南北線（さっぽろ→中島公園，約5分）→ 飯店'},
+    {icon:'🍣', label:'晚餐・必吃', name:'薄野 海鮮居酒屋', tags:[{type:'food',text:'磯魚 北のグルメ亭'},{type:'food',text:'魚一心'}], desc:'薄野一帶有眾多平價海鮮居酒屋，推薦「磯魚 北のグルメ亭」或「魚一心」，新鮮螃蟹、海膽、干貝，價格實惠。青少年可點特製餐點。飯店步行約10分。'},
+  ],
+  'tl-day3': [
+    {type:'transport', icon:'🚃', label:'交通', name:'JR 札幌駅 → JR函館本線快速（35分）→ JR 小樽駅｜建議08:00出發'},
+    {icon:'🐟', label:'早餐・必吃', name:'小樽三角市場 海鮮丼', tags:[{type:'food',text:'新鮮海鮮'},{type:'food',text:'JR小樽駅前1分'}], desc:'JR小樽駅出來即到。市場裡的食堂可自選新鮮海鮮組合成丼飯：海膽、鮭魚卵、甜蝦、螃蟹，新鮮度一流，是抵達小樽的第一站必吃。'},
+    {icon:'🛍️', label:'景點・購物', name:'堺町通り 商店街', tags:[{type:'sight',text:'購物'},{type:'sight',text:'伴手禮'}], desc:'小樽最熱鬧的購物街，玻璃工藝品、北海道牛奶甜點、音樂盒、海鮮等商家密集。從小樽駅步行約10分進入商店街，親子邊走邊吃邊買。'},
+    {icon:'🍰', label:'必吃・甜點', name:'LeTAO 本店', tags:[{type:'food',text:'雙層起司蛋糕'},{type:'food',text:'堺町通り'}], desc:'小樽最知名甜點品牌，雙層起司蛋糕（ドゥーブルフロマージュ）入口即化。本店在堺町通，二樓咖啡廳可欣賞街景，建議現場享用。'},
+    {icon:'🧁', label:'必吃・甜點', name:'北菓楼 kitakaro 本店', tags:[{type:'food',text:'現烤泡芙'},{type:'food',text:'年輪蛋糕'}], desc:'北海道著名菓子店，「夢不思議」泡芙、年輪蛋糕都是人氣商品。與LeTAO相距不遠，兩家連走，本店可享用現烤泡芙。'},
+    {icon:'🏮', label:'景點', name:'北一硝子 三號館', tags:[{type:'sight',text:'玻璃工藝'},{type:'sight',text:'DIY體驗'}], desc:'明治時代倉庫改建的玻璃工藝品店，內部有數百盞油燈燃燒，氣氛獨特而溫暖，也可體驗玻璃彩繪DIY。堺町通り末段，靠近小樽運河。'},
+    {icon:'🌊', label:'景點・壓軸', name:'小樽運河', tags:[{type:'sight',text:'地標'},{type:'sight',text:'傍晚點燈最美'}], desc:'建於1923年的磚造倉庫群與運河，是小樽最具代表性的景色。傍晚點燈後尤為浪漫，石板路沿途設有藝術品與咖啡廳。建議傍晚17:00前後在此拍照，再搭車返札。'},
+    {type:'transport', icon:'🚃', label:'交通', name:'JR 小樽駅 → JR 札幌駅（35分）→ 地下鐵 → 飯店｜建議17:00–18:00搭車'},
+  ],
+  'tl-day4': [
+    {type:'transport', icon:'🚇', label:'交通', name:'飯店 → 地下鐵南北線「中島公園駅」→「真駒内駅」（終點，約12分）→ 中央バス2番乗り場 →「芸術の森入口」（約15分）下車'},
+    {icon:'🎨', label:'景點', name:'札幌藝術之森（札幌芸術の森）', tags:[{type:'sight',text:'野外美術館'},{type:'sight',text:'約2小時'},{type:'sight',text:'雕塑×自然'}], desc:'坐落於札幌南區丘陵地帶的大型綜合藝術文化設施，最大亮點是廣達40公頃的「野外美術館」，74件國內外雕塑作品散落在自然林間草地中，漫步其中猶如走進戶外藝術展。夏季（6–8月）開放至17:30，建議參觀約2小時。入場費：野外美術館大人700日圓、高中生280日圓。中央巴士約15分間隔發車，注意回程班次時刻。'},
+    {type:'transport', icon:'🚌', label:'交通', name:'芸術の森センター → 中央バス（約15分）→「真駒内駅」→ 地下鐵南北線（約10分）→「すすきの駅」'},
+    {icon:'🍜', label:'午餐・必吃', name:'すみれ 札幌すすきの店 味噌拉麵', tags:[{type:'food',text:'札幌名物'},{type:'food',text:'お盆須排隊'}], desc:'札幌是日本味噌拉麵的發源地！すみれ是業界公認的頂級名店，濃厚味噌湯底、炒香蔬菜，無可取代。8月お盆期間極擁擠，建議開門前（11:00前）排隊或早到等候。位於薄野附近，藝術之森返回後直接前往。'},
+    {icon:'🍶', label:'甜點・必吃', name:'六花亭 札幌本店', tags:[{type:'food',text:'奶油夾心餅乾'},{type:'food',text:'內用咖啡廳'}], desc:'北海道代表性菓子品牌，札幌本店有可內用的咖啡廳，招牌マルセイバターサンド是必買伴手禮。若在藻岩山夜景前來下午茶，或買盒伴手禮帶回飯店。'},
+    {type:'transport', icon:'🚋', label:'交通', name:'六花亭札幌本店 → 步行約8分至「西4丁目」停留所 → 市電外回り（約20–25分）→「ロープウェイ入口」停留所 → 免費シャトルバス（約5分）or 步行約8分 → 藻岩山麓駅'},
+    {icon:'🏔️', label:'景點・壓軸', name:'藻岩山 夜景', tags:[{type:'sight',text:'日本新三大夜景'},{type:'sight',text:'纜車+迷你纜車'},{type:'sight',text:'夏季10:30–22:00'}], desc:'搭乘纜車＋迷你纜車雙層抵達標高531公尺山頂，日本新三大夜景之一。建議傍晚前往，日落後夜景震撼無比。纜車+ミニケーブルカー往復大人2,100日圓、小學生以下1,050日圓。市電「ロープウェイ入口」停留所旁有免費接駁巴士每15分一班，或步行約8分至山麓駅。'},
+  ],
+  'tl-day5': [
+    {type:'transport', icon:'🚇', label:'交通', name:'飯店 → 地下鐵南北線「中島公園駅」→「大通駅」→ 東豊線換乘 →「環状通東駅」（約8分）→ 中央バス東69/東79（約25分）→「モエレ沼公園東口」下車｜建議09:00出發'},
+    {icon:'🗿', label:'景點', name:'莫埃來沼公園（モエレ沼公園）', tags:[{type:'sight',text:'伊薩姆·野口設計'},{type:'sight',text:'約1–2小時'},{type:'sight',text:'免費入場'}], desc:'由日裔美籍世界級雕塑家伊薩姆·野口（Isamu Noguchi）以「將整座公園打造成一件雕塑作品」為理念所設計，1982年動工，2005年全面開放。佔地約188.8公頃，入場完全免費。園內最具代表性的是玻璃金字塔「HIDAMARI」、直徑48公尺的海之噴水（定時噴發），以及可登頂俯瞰全園的「モエレ山（海拔62公尺人工山）」。租借園內自行車（200日圓/2小時）是最有效率的遊覽方式。注意：巴士班次約1小時2班，回程請提前確認時刻。'},
+    {type:'transport', icon:'🚌', label:'交通', name:'モエレ沼公園東口 → 中央バス東69/東79（約25分）→「環状通東駅」→ 地下鐵東豊線（約8分）→「大通駅」→ 步行約5分 → GARAKU湯咖哩本店'},
+    {icon:'🍛', label:'午餐・必吃', name:'GARAKU 湯咖哩本店', tags:[{type:'food',text:'札幌湯咖哩'},{type:'food',text:'大通・薄野之間'},{type:'food',text:'お盆須排隊'}], desc:'札幌湯咖哩人氣名店，本店位於南2条西2丁目一帶，從大通站或薄野站步行都很方便。招牌是香料層次濃、蔬菜份量足的湯咖哩，可依喜好選辣度與飯量。8月お盆期間容易排隊，從莫埃來沼公園回市區後建議直接前往。'},
+    {icon:'🕰️', label:'景點', name:'札幌市時計台', tags:[{type:'sight',text:'1878年建造'},{type:'sight',text:'大通駅步行5分'}], desc:'1878年建造的農學校演武場，北海道開拓時代的象徵。雖被戲稱「日本三大失望景點之一」，但歷史意義深遠，周邊高樓包圍反而形成奇特趣味對比，值得順路一看。'},
+    {icon:'🧱', label:'景點', name:'北海道廳舊本廳舍（赤煉瓦）', tags:[{type:'sight',text:'免費入場'},{type:'sight',text:'時計台步行3分'}], desc:'建於1888年的紅磚廳舍，國家重要文化財。內部可免費參觀北海道歷史展，庭院也開放入場，是札幌最上鏡的歷史建築。'},
+    {type:'transport', icon:'🚇', label:'交通', name:'赤煉瓦前 → 步行3分 →「大通駅」→ 地下鐵東西線（約10分）→「円山公園駅」→ 步行約15分 → 北海道神宮'},
+    {icon:'⛩️', label:'景點', name:'北海道神宮', tags:[{type:'sight',text:'祈福求籤'},{type:'sight',text:'圓山公園旁'}], desc:'札幌最重要的神社，位於圓山公園旁，綠蔭茂密。可祈福求籤，感受北海道神道氛圍。神宮內有境內攤位，可順路嚐嚐現烤「判官樣」紅豆年糕（限定甜點，附免費奉茶）。'},
+    {type:'transport', icon:'🚇', label:'交通', name:'北海道神宮 → 步行約15分 →「円山公園駅」→ 地下鐵東西線（約6分）→「大通駅」'},
+    {icon:'🎉', label:'特殊活動', name:'北海盆踊り (Hokkaido Bon Odori Festival)', tags:[{type:'event',text:'北海盆唄'},{type:'event',text:'太鼓'}], desc:'從大通公園 2 丁目進入，現場會搭起巨大的木製高台（櫓），太鼓手在上方擊鼓，市民與遊客身穿浴衣圍成數圈隨著《北海盆唄》起舞。強烈建議全家一起走入隊伍中跟著跳，這是日本夏天最震撼、最有人情味的文化體驗。'},
+    {type:'transport', icon:'🚇', label:'回程', name:'大通公園 → 步行或地下鐵南北線（1站）→「中島公園駅」→ 步行5分 → 飯店'},
+  ],
+  'tl-day6': [
+    {type:'transport', icon:'🚃', label:'交通', name:'JR 札幌駅 → JR特急「カムイ/ライラック」（約90分）→ JR 旭川駅｜建議08:00出發'},
+    {type:'transport', icon:'🚃', label:'交通', name:'JR 旭川駅 → JR富良野線（約45分）→ 美馬牛駅｜約09:30換乘'},
+    {type:'transport', icon:'🚶', label:'交通', name:'美馬牛駅 → 步行約20–25分（或站前計程車約5分/700–800日圓）→ 四季彩之丘'},
+    {icon:'🌸', label:'景點・壓軸', name:'四季彩之丘（展望花畑 四季彩の丘）', tags:[{type:'sight',text:'彩色花毯丘陵'},{type:'sight',text:'7–9月入場800日圓'},{type:'sight',text:'約3–4小時'}], desc:'位於美瑛丘陵上、佔地7公頃（東京巨蛋約3個）的北海道代表性花園。每年4月下旬至10月下旬，約30種草花依序盛開，從高處望去，紅、黃、紫、粉的花田像一條條彩虹地毯鋪滿山丘，遠方是十勝岳連峰的雄偉輪廓，景色令人屏息。8月正值向日葵、薰衣草、百日草等同時盛開的黃金期。出站後步行約20–25分鐘抵達，沿途已能感受美瑛丘陵的開闊氣息。園內可搭乘拖拉機觀光車「四季彩ノロッコ號」悠閒巡遊，也有4人乘高爾夫球車可自由行駛。另設有可愛的羊駝牧場（通年開放），餵食體驗深受青少年喜愛。午餐可在園內餐廳品嚐北海道湯咖哩與現炸馬鈴薯可樂餅。夏季（7–9月）入場費：高中生以上800日圓，中小學生500日圓，乘車另計。營業時間：6–9月 8:40–17:30。'},
+    {icon:'🥔', label:'午餐・必吃', name:'四季彩之丘 園內餐廳・美食', tags:[{type:'food',text:'北海道湯咖哩'},{type:'food',text:'現炸馬鈴薯可樂餅'}], desc:'園內設有餐廳與小吃攤，推薦使用美瑛產新鮮馬鈴薯製成的現炸可樂餅（約200日圓），以及北海道風味的湯咖哩。邊眺望花田邊用餐，是難忘的旅行體驗。農産品直賣所也有玉米、哈密瓜等當季食材可購買。'},
+    {type:'transport', icon:'🚃', label:'交通', name:'美馬牛駅 → JR富良野線（約45分）→ JR 旭川駅｜約15:00–15:30搭車'},
+    {icon:'🛍️', label:'景點・散步', name:'旭川市中心・買物公園', tags:[{type:'sight',text:'日本第一步行天國'},{type:'sight',text:'旭川駅出站即進入'}], desc:'從旭川駅步行即可進入日本第一條步行者天國商店街「買物公園」，兩側有咖啡廳、伴手禮店，適合飯前輕鬆逛街，感受旭川的在地氛圍，預留約1小時悠閒散步。'},
+    {icon:'🍜', label:'晚餐・必吃', name:'旭川醬油拉麵 青葉本店 / 旭川ラーメン村', tags:[{type:'food',text:'醬油豚骨海鮮湯底'},{type:'food',text:'北海道三大拉麵'}], desc:'旭川與札幌（味噌）、函館（鹽味）並稱北海道三大拉麵，以「醬油豚骨海鮮雙湯底」為特色。豚骨與海鮮熬製的湯底鮮醇濃厚，細捲麵吸附湯汁極佳。推薦老字號「青葉本店」，或前往「旭川ラーメン村」一次比較8家名店，約19:00–20:00用餐最不需排隊。'},
+    {type:'transport', icon:'🚃', label:'交通', name:'JR 旭川駅 → JR特急（約90分）→ JR 札幌駅 → 飯店｜約20:00–20:30搭車，約22:00返飯店'},
+  ],
+  'tl-day7': [
+    {type:'transport', icon:'🚃', label:'交通', name:'JR 札幌駅 → JR特急「すずらん/北斗」（70分）→ JR 登別駅 → 道南巴士（13分）→ 登別温泉'},
+    {icon:'👺', label:'景點・活動', name:'鬼の銅像 & 閻魔堂審判表演', tags:[{type:'sight',text:'溫泉街地標'},{type:'event',text:'免費表演'}], desc:'登別溫泉街的地標，閻羅王銅像與地獄主題裝飾遍佈街道。閻魔堂每日特定時段有機關表演，閻王大張其嘴、眼睛發光，老少咸宜。'},
+    {icon:'🌋', label:'景點・壓軸', name:'地獄谷（じごくだに）', tags:[{type:'sight',text:'免費入場'},{type:'sight',text:'直徑450公尺火口'}], desc:'登別最具代表性的奇觀，直徑約450公尺的爆裂火口遺跡，地面裂縫不斷噴出硫磺煙霧與沸騰泉水，如同地獄場景。步道環繞，免費入場，視覺衝擊感十足！'},
+    {icon:'💨', label:'景點', name:'大湯沼（おおゆぬま）', tags:[{type:'sight',text:'水溫約50°C'},{type:'sight',text:'地獄谷步行10分'}], desc:'直徑約130公尺的硫磺泉沼，水溫高達約50°C，沼面不停冒泡，從展望台俯瞰壯觀異常。步行棧道可近距離感受地熱，硫磺煙霧飄渺，宛如異世界。'},
+    {icon:'🦶', label:'體驗', name:'無料足湯', tags:[{type:'event',text:'免費'},{type:'sight',text:'夢元さぎり湯旁'}], desc:'溫泉街上有多處免費足湯，沿路悠閒泡腳，感受溫泉鄉氣氛。邊泡足湯邊欣賞溫泉街景色，是孩子和大人都喜歡的放鬆時刻。'},
+    {icon:'🍡', label:'必吃', name:'溫泉饅頭（温泉まんじゅう）', tags:[{type:'food',text:'現蒸約100日圓/個'},{type:'food',text:'溫泉街各店'}], desc:'登別溫泉必吃甜點，用溫泉水蒸製的黑色外皮饅頭，餡料香甜。溫泉街上多家販售，現蒸現吃，邊泡足湯邊吃最對味！'},
+    {icon:'🦀', label:'晚餐・必吃', name:'登別螃蟹料理', tags:[{type:'food',text:'松葉蟹・毛蟹'},{type:'food',text:'溫泉街餐廳'}], desc:'北海道知名螃蟹（松葉蟹、毛蟹）在登別溫泉街附近的海鮮餐廳可享用。若預算允許，點螃蟹定食作為旅程最後一頓豐盛晚餐。'},
+    {icon:'🎆', label:'特殊活動・壓軸', name:'地獄の谷の鬼花火 煙火秀', tags:[{type:'event',text:'免費'},{type:'event',text:'約20:00 & 21:00'}], desc:'每晚在登別温泉街舉行小型「鬼的煙火祭」表演，免費觀賞，8月份每晚皆有，約20:00、21:00各一場。晚餐後在街上等待即可欣賞，是完美的旅程句點！'},
+    {type:'transport', icon:'🚌', label:'交通', name:'温泉バスターミナル → JR 登別駅 → JR特急（70分）→ 札幌｜看完煙火約21:30搭巴士'},
+  ],
+  'tl-day8': [
+    {icon:'🏨', label:'退房', name:"Hotel ONE'S RESIDENCE 退房", tags:[{type:'hotel',text:'最晚11:30離開市區'}], desc:'CI131出發時間15:05，建議12:30前抵達新千歲機場。退房後行李可在大廳寄放，或直接帶往JR札幌駅寄存後再購物。最晚11:30–11:45搭上JR。'},
+    {icon:'🛍️', label:'購物', name:'JR タワーステラプレイス & 札幌駅地下街', tags:[{type:'sight',text:'JR札幌駅直結'},{type:'sight',text:'B1-B2食品區'}], desc:'JR札幌站地下連結多個大型商場，做最後的伴手禮採購。B1-B2食品區有白色戀人、六花亭、Royce巧克力等知名品牌，一次搞定所有土産。'},
+    {type:'transport', icon:'🚃', label:'交通', name:'JR 札幌駅 → JR快速Airport（45分）→ 新千歲機場｜最晚11:45出發'},
+    {icon:'🍜', label:'午餐・必吃', name:'新千歲空港 拉麵道場', tags:[{type:'food',text:'機場3F'},{type:'food',text:'10家名店'}], desc:'機場3F集結北海道各地10家知名拉麵，味噌、醬油、鹽味、海鮮全都有，是離開北海道前最後一碗麵的最佳選擇。各家排隊人潮多，建議抵達機場後立刻前往。'},
+    {icon:'🍫', label:'購物・必買', name:'新千歲機場免稅區 & 白色戀人旗艦店', tags:[{type:'food',text:'白色戀人'},{type:'food',text:'北海道牛奶霜淇淋'}], desc:'機場內購物區極豐富，有白色戀人工廠旗艦店（可現場品嚐）、北海道牛奶霜淇淋、各式土産。建議預留1.5–2小時在機場盡情採購最後的伴手禮。'},
+    {icon:'✈️', label:'出發', name:'華航 CI131 新千歲 15:05 → 台灣', tags:[{type:'transport',text:'建議13:30前完成報到'}], desc:'建議13:30前完成報到手續與通關，前往登機門。帶著滿滿的北海道回憶與行李箱的土産，期待再訪！'},
+  ],
+};
+
+setLanguage(localStorage.getItem('trip-lang') || 'zh');
+</script>
+</body>
+</html>
